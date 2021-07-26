@@ -54,9 +54,9 @@ def getItem(url):
     vulList = soup.find_all('li', class_ = 'strip')
     for list in vulList:
         vul_Url = "https://zeroday.hitcon.org{}".format(list.a['href'])
+        print("+ [2] GET XML Items: {}".format(vul_Url))
         getDetails(vul_Url)
-        print("+ [2] GET XML Items")
-
+        
     # Next Page
     global pageCount
     Nextpage = soup.find('a', class_ = 'pg-next')
@@ -67,7 +67,6 @@ def getItem(url):
         
 
 def getDetails(url):
-    
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
 
@@ -75,12 +74,43 @@ def getDetails(url):
     title = soup.find('li', class_ = 'title')
     title = title.find('span', class_ = 'value').text
     link = url
-    description = soup.find_all('div', class_ = 'container')[2]
+    description = getDescription(soup.find_all('div', class_ = 'container')[2])
+    # print(description)
     pubDate = soup.find('span', class_ = 'log-date').text
     pubDate = datetime.datetime.strptime(pubDate, '%Y/%m/%d %H:%M:%S').strftime(GMT_FORMAT)
     
     # PUT Vulnerability Details
     items.append(item(title, link, description, pubDate))
+
+def getDescription(soup):
+    text = ''
+    sections = soup.find_all('section', class_ = "vul-detail-section")
+
+    for i in range(1,len(sections)-3):
+        h3 = sections[i].find('h3').text
+        content = sections[i].find('div', class_ = 'section-content')
+        text += r'<h3>{0}</h3>' \
+                r'{1}' \
+            .format(h3, content)
+
+    # status = soup.find('ul', attrs={'id': 'vul-status-log-list'})
+    # info = soup.find('div', class_ = 'section-content info')
+    # reference = soup.find('div', class_ = 'section-content url')
+    # url = soup.find('div', class_ = 'urls').string
+    # narrate = soup.find_all('div', class_ = 'section-content zdui-md-content')[0]
+    # # print(repair)
+    # text = r'<h3>處理狀態</h3>' \
+    #        r'{0}' \
+    #        r'<h3>詳細資料</h3>' \
+    #        r'{1}' \
+    #        r'<h3>參考資料</h3>' \
+    #        r'{2}' \
+    #        r'<h3>相關網址</h3>' \
+    #        r'{3}' \
+    #        r'<h3>敘述</h3>' \
+    #        r'{4}' \
+    #     .format(status, info, reference, url, narrate)
+    return text
 
 def createRSS(channel, name):
     
