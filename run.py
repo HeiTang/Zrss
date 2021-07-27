@@ -159,8 +159,8 @@ if __name__=="__main__":
         url_ = "https://zeroday.hitcon.org/vulnerability/{}".format(value)
 
         # 1. Channel
-        channel = getChannel(url_)
+        channel_ = getChannel(url_)
         # 2. Items
         getItem(url_)
         # 3. Create RSS
-        createRSS(channel, value)
+        createRSS(channel_, value)
