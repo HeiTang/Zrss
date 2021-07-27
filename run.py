@@ -151,14 +151,16 @@ def createRSS(channel, name):
     print("+ [3] GET XML File")
 
 if __name__=="__main__":
-    KEY = int(sys.argv[1])
-    switch = {0 : "all", 1: "", 2: "patching", 3: "disclosed"}
-    value = switch.get(KEY)
-    url_ = "https://zeroday.hitcon.org/vulnerability/{}".format(value)
+    KEYS = sys.argv[1].split(',')
+    
+    for KEY in KEYS:
+        switch = {0 : "all", 1: "", 2: "patching", 3: "disclosed"}
+        value = switch.get(int(KEY))
+        url_ = "https://zeroday.hitcon.org/vulnerability/{}".format(value)
 
-    # 1. Channel
-    channel = getChannel(url_)
-    # 2. Items
-    getItem(url_)
-    # 3. Create RSS
-    createRSS(channel, value)
+        # 1. Channel
+        channel = getChannel(url_)
+        # 2. Items
+        getItem(url_)
+        # 3. Create RSS
+        createRSS(channel, value)
