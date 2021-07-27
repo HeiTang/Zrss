@@ -75,7 +75,6 @@ def getDetails(url):
     title = title.find('span', class_ = 'value').text
     link = url
     description = getDescription(soup.find_all('div', class_ = 'container')[2])
-    # print(description)
     pubDate = soup.find('span', class_ = 'log-date').text
     pubDate = datetime.datetime.strptime(pubDate, '%Y/%m/%d %H:%M:%S').strftime(GMT_FORMAT)
     
@@ -86,12 +85,12 @@ def getDescription(soup):
     text = ''
     sections = soup.find_all('section', class_ = "vul-detail-section")
 
-    for i in range(1,len(sections)-3):
+    for i in range(2,len(sections)-3):
         h3 = sections[i].find('h3').text
         content = sections[i].find('div', class_ = 'section-content')
         text += r'<h3>{0}</h3>' \
                 r'{1}' \
-            .format(h3, content)
+            .format(h3, content.prettify())
 
     # status = soup.find('ul', attrs={'id': 'vul-status-log-list'})
     # info = soup.find('div', class_ = 'section-content info')
@@ -110,37 +109,38 @@ def getDescription(soup):
     #        r'<h3>敘述</h3>' \
     #        r'{4}' \
     #     .format(status, info, reference, url, narrate)
+
     return text
 
 def createRSS(channel, name):
     
     # XML Format - XML Channel
     rss_text = r'<rss ' \
-               r' version="2.0" ' \
-               r' encoding="UTF-8"> ' \
-               r' <channel>' \
-               r' <title>{}</title>' \
-               r' <link>{}</link>' \
-               r' <description>{}</description>' \
-               r' <author>{}</author>' \
-               r' <image>' \
-               r'  <url>{}</url>' \
-               r' </image>' \
-               r' <language>{}</language>' \
-               r' <copyright>{}</copyright>' \
+               r'version="2.0" ' \
+               r'encoding="UTF-8">' \
+               r'<channel>' \
+               r'<title>{}</title>' \
+               r'<link>{}</link>' \
+               r'<description>{}</description>' \
+               r'<author>{}</author>' \
+               r'<image>' \
+               r'<url>{}</url>' \
+               r'</image>' \
+               r'<language>{}</language>' \
+               r'<copyright>{}</copyright>' \
         .format(channel.title, channel.link, channel.description ,channel.author, channel.image, channel.language, channel.copyright)
 
     # XML Format - XML Items
     for item in items:
-        rss_text += r' <item>' \
-                    r'  <title>{}</title>' \
-                    r'  <link>{}</link>' \
-                    r'  <description>{}</description>' \
-                    r'  <pubDate>{}</pubDate>' \
-                    r' </item>'\
+        rss_text += r'<item>' \
+                    r'<title>{}</title>' \
+                    r'<link>{}</link>' \
+                    r'<description>{}</description>' \
+                    r'<pubDate>{}</pubDate>' \
+                    r'</item>' \
             .format(item.title, item.pubDate, item.description, item.link)
 
-    rss_text += r' </channel></rss>'
+    rss_text += r'</channel></rss>'
 
     # Write File 
     FileName = "zeroday_{}.xml".format(name)
