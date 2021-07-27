@@ -4,12 +4,6 @@ from bs4 import BeautifulSoup
 # GMT Format
 GMT_FORMAT =  '%a, %d %b %Y %H:%M:%S GMT'
 
-# PUT Vulnerability Details
-items = []
-
-# Page Count
-pageCount = 0
-
 # rss channel
 class channel(object):
 
@@ -154,6 +148,12 @@ if __name__=="__main__":
     KEYS = sys.argv[1].split(',')
     
     for KEY in KEYS:
+
+        # PUT Vulnerability Details
+        items = []
+        # Page Count
+        pageCount = 0
+
         switch = {0 : "all", 1: "", 2: "patching", 3: "disclosed"}
         value = switch.get(int(KEY))
         url_ = "https://zeroday.hitcon.org/vulnerability/{}".format(value)
