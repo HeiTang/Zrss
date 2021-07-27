@@ -20,14 +20,14 @@ jobs:
       id: generator
       run: python3 run.py 0,1,2,3
     - name: Commit
-      if: steps.generator.outputs.has-changes == 'true'
+      continue-on-error: true
       run: |
         git config --global user.email "tim881205@gmail.com"
         git config --global user.name "HeiTang"
         git add .
         git commit -m "Doc: Upgrade RSS"
     - name: Push Changes
-      if: steps.generator.outputs.has-changes == 'true'
+      if: success()
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.MY_GIT_TOKEN }}
