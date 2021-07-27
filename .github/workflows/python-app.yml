@@ -17,16 +17,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Run Python
+      id: generator
       run: python3 run.py 0,1,2,3
     - name: Commit
-      if: steps.format.outputs.has-changes == 'true'
+      if: steps.generator.outputs.has-changes == 'true'
       run: |
         git config --global user.email "tim881205@gmail.com"
         git config --global user.name "HeiTang"
         git add .
         git commit -m "Doc: Upgrade RSS"
     - name: Push Changes
-      if: steps.format.outputs.has-changes == 'true'
+      if: steps.generator.outputs.has-changes == 'true'
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.MY_GIT_TOKEN }}
