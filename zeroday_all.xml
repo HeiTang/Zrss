@@ -7883,7 +7883,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Fri, 24 Sep 2021 08:00:05 GMT</pubDate></item><item><title> 某單位 校網 反射型XSS漏洞</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00729</link><description><div class="container">
+</description><pubDate>Fri, 24 Sep 2021 08:00:05 GMT</pubDate></item><item><title>東海大學校網 反射型XSS漏洞</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00729</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -7901,12 +7901,25 @@
       ZD-2021-00729
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/682">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      東海大學
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      某單位 校網 反射型XSS漏洞
+      東海大學校網 反射型XSS漏洞
      </span>
     </li>
     <li class="intro">
@@ -7929,10 +7942,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2021/10/12
+    Last Update : 2021/10/20
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-low">
     <li class="">
@@ -7962,7 +7975,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -7971,7 +7984,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="non-stop">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -7980,7 +7993,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -8073,6 +8086,17 @@
       已修補 (由 組織帳號 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2021/10/20 03:00:03
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -8101,6 +8125,128 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可經由該漏洞竊取使用者身份，或進行掛碼、轉址等攻擊行為。
+    <br/>
+    <br/>
+    漏洞說明： OWASP - Cross-site Scripting (XSS)
+    <br/>
+    https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
+    <br/>
+    <br/>
+    防護原則： OWASP - XSS (Cross Site Scripting) Prevention Cheat Sheet
+    <br/>
+    https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+    <br/>
+    <br/>
+    防禦繞過方式： OWASP - XSS Filter Evasion Cheat Sheet
+    <br/>
+    https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://course.thu.edu.tw/
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     東海大學 課程資訊系統 反射型跨站腳本攻擊
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/6928/attachments/2d711d29e9959c32273874b62ca415ca"/>
+     :先對輸入框放payload
+     <code>
+      &lt;SCR&lt;script&gt;IPT&gt;
+     </code>
+     ，如
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/6928/attachments/d399a88c51ef5cdb4417a1e0890ef1d0"/>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/6928/attachments/69431ac8409ce8ba5ccb046be921dc62"/>
+     頁面僅出現
+     <code>
+      IPT&gt;
+     </code>
+     ，表示可能&lt;script&gt;有擋
+     <br/>
+     IMG#6輸入payload
+     <code>
+      &lt;SCR&lt;script&gt;IPT&gt;alert(1)&lt;/script&gt;
+     </code>
+     後，頁面僅出現 IPT&gt;alert(1)&lt;
+     <br/>
+     思路是IPT&gt;跟&lt;內沒有擋，所以再嵌入一段script
+     <code>
+      &lt;iframe%20onload="alert(1)"&gt;&lt;/iframe&gt;
+     </code>
+     在裡面
+    </p>
+    <p>
+     全段payload &lt;SCR&lt;script&gt;IPT&gt;&lt;iframe%20onload="alert(1)"&gt;&lt;/iframe&gt;&lt;/script&gt;
+     <br/>
+     造成
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/6928/attachments/4d80e79479bc602415e5aab3436979ad"/>
+     、
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/6928/attachments/42d625d80f40348127546f32328dab24"/>
+    </p>
+    <p>
+     事後為了更嚴謹確認漏洞，alert()裡的參數有更改成document.domain及window.origin，確定存在XSS漏洞
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/6928/attachments/4d80e79479bc602415e5aab3436979ad" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/6928/attachments/42d625d80f40348127546f32328dab24" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/6928/attachments/2d711d29e9959c32273874b62ca415ca" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/6928/attachments/d399a88c51ef5cdb4417a1e0890ef1d0" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/6928/attachments/69431ac8409ce8ba5ccb046be921dc62" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -8113,6 +8259,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/682">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
