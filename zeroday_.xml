@@ -1,4 +1,3680 @@
-<rss version="2.0" encoding="UTF-8"><channel><title>HITCON ZeroDay - 活動中漏洞</title><link>https://zeroday.hitcon.org/vulnerability</link><description>ZeroDay 是一個銜接資安專家與組織間的良性溝通橋樑的漏洞提報平台，專門協助接獲漏洞通報並提報予組織和修正漏洞等服務。</description><author>HITCON ZeroDay</author><image><url>https://zeroday.hitcon.org/images/favicon/favicon.png</url></image><language>zh_TW</language><copyright>HITCON ZeroDay</copyright><item><title> 某單位   網站參數存在 XSS 與原型污染  及 SQL injection </title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00839</link><description><div class="container">
+<rss version="2.0" encoding="UTF-8"><channel><title>HITCON ZeroDay - 活動中漏洞</title><link>https://zeroday.hitcon.org/vulnerability</link><description>ZeroDay 是一個銜接資安專家與組織間的良性溝通橋樑的漏洞提報平台，專門協助接獲漏洞通報並提報予組織和修正漏洞等服務。</description><author>HITCON ZeroDay</author><image><url>https://zeroday.hitcon.org/images/favicon/favicon.png</url></image><language>zh_TW</language><copyright>HITCON ZeroDay</copyright><item><title> 某單位  網址參數存在 SQL injection 與 XSS</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00878</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-high-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00878
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  網址參數存在 SQL injection 與 XSS
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      網址參數存在 SQL injection 與 XSS
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    新提交
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-high">
+    <li class="just-arrived">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未審核
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未通報
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未修補
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/12/02 11:52:27
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 bttea 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:56:12
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 bttea 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:57:11
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 bttea 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00878
+    </li>
+    <li>
+     通報者：blacktea_player (
+     <a href="/user/blacktea_player">
+      bttea
+     </a>
+     )
+    </li>
+    <li>
+     風險：高
+    </li>
+    <li>
+     類型：資料庫注入攻擊 (SQL Injection)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Thu, 02 Dec 2021 11:52:27 GMT</pubDate></item><item><title> 某單位  Sqli</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00855</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-medium-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00855
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  Sqli
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      Sqli
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    通報未回應
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-medium">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       通報中
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未修補
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/26 18:11:02
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:59:18
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:46:18
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:46:18
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:46:18
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00855
+    </li>
+    <li>
+     通報者：waterpeitw (
+     <a href="/user/waterpeitw">
+      水皮
+     </a>
+     )
+    </li>
+    <li>
+     風險：中
+    </li>
+    <li>
+     類型：資料庫注入攻擊 (SQL Injection)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Fri, 26 Nov 2021 18:11:02 GMT</pubDate></item><item><title> 某單位  Git 洩漏</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00854</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-low-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00854
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  Git 洩漏
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      Git 洩漏
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    通報未回應
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-low">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       通報中
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未修補
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/26 16:55:21
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 Spider 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/26 16:56:19
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 Spider 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:59:07
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:41:09
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:41:09
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00854
+    </li>
+    <li>
+     通報者：lucasyang (
+     <a href="/user/lucasyang">
+      Spider
+     </a>
+     )
+    </li>
+    <li>
+     風險：低
+    </li>
+    <li>
+     類型：邏輯漏洞 (Logic Flaws)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Fri, 26 Nov 2021 16:55:21 GMT</pubDate></item><item><title> 某單位  RCE</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00853</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-high-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00853
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  RCE
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      RCE
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    修補中
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-high">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已通報
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       修補階段
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/25 17:47:04
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:58:57
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:40:55
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      修補中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:40:55
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:40:55
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      修補中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00853
+    </li>
+    <li>
+     通報者：waterpeitw (
+     <a href="/user/waterpeitw">
+      水皮
+     </a>
+     )
+    </li>
+    <li>
+     風險：高
+    </li>
+    <li>
+     類型：指令注入攻擊 (Command Injection)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Thu, 25 Nov 2021 17:47:04 GMT</pubDate></item><item><title> 某單位  SQLi</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00852</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-high-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00852
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  SQLi
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      SQLi
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    通報未回應
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-high">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       通報中
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未修補
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/25 17:43:11
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:58:43
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:40:26
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:40:26
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00852
+    </li>
+    <li>
+     通報者：waterpeitw (
+     <a href="/user/waterpeitw">
+      水皮
+     </a>
+     )
+    </li>
+    <li>
+     風險：高
+    </li>
+    <li>
+     類型：資料庫注入攻擊 (SQL Injection)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Thu, 25 Nov 2021 17:43:11 GMT</pubDate></item><item><title> 某單位  SQL Injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00851</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-medium-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00851
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  SQL Injection
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      SQL Injection
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    通報未回應
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-medium">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       通報中
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未修補
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/24 17:31:07
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:58:24
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:36:52
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:36:52
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:36:52
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00851
+    </li>
+    <li>
+     通報者：waterpeitw (
+     <a href="/user/waterpeitw">
+      水皮
+     </a>
+     )
+    </li>
+    <li>
+     風險：中
+    </li>
+    <li>
+     類型：資料庫注入攻擊 (SQL Injection)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Wed, 24 Nov 2021 17:31:07 GMT</pubDate></item><item><title> 某單位  弱密碼,任意檔案上傳,RCE</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00850</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-high-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00850
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  弱密碼,任意檔案上傳,RCE
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      弱密碼,任意檔案上傳,RCE
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    修補中
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-high">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已通報
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       修補階段
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/24 17:09:10
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:58:02
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:34:46
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      修補中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:34:46
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:34:46
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      修補中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00850
+    </li>
+    <li>
+     通報者：waterpeitw (
+     <a href="/user/waterpeitw">
+      水皮
+     </a>
+     )
+    </li>
+    <li>
+     風險：高
+    </li>
+    <li>
+     類型：指令注入攻擊 (Command Injection)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Wed, 24 Nov 2021 17:09:10 GMT</pubDate></item><item><title> 某單位  弱密碼</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00849</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-medium-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00849
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  弱密碼
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      弱密碼
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    通報未回應
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-medium">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       通報中
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未修補
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/24 16:37:06
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:57:48
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:34:20
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:34:20
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:34:20
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00849
+    </li>
+    <li>
+     通報者：waterpeitw (
+     <a href="/user/waterpeitw">
+      水皮
+     </a>
+     )
+    </li>
+    <li>
+     風險：中
+    </li>
+    <li>
+     類型：弱密碼 (Weak Passwords)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Wed, 24 Nov 2021 16:37:06 GMT</pubDate></item><item><title> 某單位  弱密碼+git洩漏</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00848</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-medium-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00848
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  弱密碼+git洩漏
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      弱密碼
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    通報未回應
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-medium">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       通報中
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未修補
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/24 15:42:00
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/25 23:57:00
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:57:37
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:32:19
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:32:19
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:32:19
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00848
+    </li>
+    <li>
+     通報者：waterpeitw (
+     <a href="/user/waterpeitw">
+      水皮
+     </a>
+     )
+    </li>
+    <li>
+     風險：中
+    </li>
+    <li>
+     類型：弱密碼 (Weak Passwords)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Wed, 24 Nov 2021 15:42:00 GMT</pubDate></item><item><title> 某單位 R-XSS</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00847</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-low-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00847
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位 R-XSS
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      RXSS
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    修補中
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-low">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已通報
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       修補階段
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/24 11:01:00
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/24 11:01:25
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/24 11:02:15
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:57:24
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:27:17
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      修補中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:27:17
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:27:17
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      修補中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00847
+    </li>
+    <li>
+     通報者：waterpeitw (
+     <a href="/user/waterpeitw">
+      水皮
+     </a>
+     )
+    </li>
+    <li>
+     風險：低
+    </li>
+    <li>
+     類型：反射型跨站腳本攻擊 (Reflected Cross-Site Scripting)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Wed, 24 Nov 2021 11:01:00 GMT</pubDate></item><item><title> 某單位 演講邀約系統身份認證繞過</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00846</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-medium-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00846
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位 演講邀約系統身份認證繞過
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      演講邀約系統能利用更改網址的方式繞過身份驗證
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    修補中
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-medium">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已通報
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       修補階段
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/23 18:54:44
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 jerrygaga 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/23 19:52:26
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 jerrygaga 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:57:15
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:26:59
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      修補中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:26:59
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:26:59
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      修補中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00846
+    </li>
+    <li>
+     通報者：jerry30109 (
+     <a href="/user/jerry30109">
+      jerrygaga
+     </a>
+     )
+    </li>
+    <li>
+     風險：中
+    </li>
+    <li>
+     類型：存取控制缺陷 (Broken Access Control)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Tue, 23 Nov 2021 18:54:44 GMT</pubDate></item><item><title> 某單位  SQL Injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00845</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-high-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00845
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  SQL Injection
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      SQL Injection
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    通報未回應
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-high">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       通報中
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未修補
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/23 18:14:11
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/23 21:01:58
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:57:00
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:26:41
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:26:41
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00845
+    </li>
+    <li>
+     通報者：waterpeitw (
+     <a href="/user/waterpeitw">
+      水皮
+     </a>
+     )
+    </li>
+    <li>
+     風險：高
+    </li>
+    <li>
+     類型：資料庫注入攻擊 (SQL Injection)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Tue, 23 Nov 2021 18:14:11 GMT</pubDate></item><item><title> 某單位 SQL Injection 漏洞</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00844</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-high-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00844
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位 SQL Injection 漏洞
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      報名系統後端維護系統登入頁面能經由Sql injection的方式繞過身份認證
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    修補中
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-high">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已通報
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       修補階段
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/23 16:32:18
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 jerrygaga 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/23 17:00:07
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 jerrygaga 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/23 19:52:43
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 jerrygaga 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:56:27
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:24:41
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:24:41
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      修補中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:24:41
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      修補中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00844
+    </li>
+    <li>
+     通報者：jerry30109 (
+     <a href="/user/jerry30109">
+      jerrygaga
+     </a>
+     )
+    </li>
+    <li>
+     風險：高
+    </li>
+    <li>
+     類型：資料庫注入攻擊 (SQL Injection)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Tue, 23 Nov 2021 16:32:18 GMT</pubDate></item><item><title> 某單位  RCE</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00843</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-high-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00843
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  RCE
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      RCE
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    通報未回應
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-high">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       通報中
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未修補
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/22 17:40:45
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:56:16
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:24:26
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:24:26
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00843
+    </li>
+    <li>
+     通報者：waterpeitw (
+     <a href="/user/waterpeitw">
+      水皮
+     </a>
+     )
+    </li>
+    <li>
+     風險：高
+    </li>
+    <li>
+     類型：指令注入攻擊 (Command Injection)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Mon, 22 Nov 2021 17:40:45 GMT</pubDate></item><item><title> 某單位  網站參數存在SQL injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00842</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-medium-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00842
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  網站參數存在SQL injection
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      網站參數存在SQL injection
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    通報未回應
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-medium">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       通報中
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未修補
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/21 23:56:27
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 wucy0612 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:56:00
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:23:47
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:23:47
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:23:47
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00842
+    </li>
+    <li>
+     通報者：wucy0612 (
+     <a href="/user/wucy0612">
+      wucy0612
+     </a>
+     )
+    </li>
+    <li>
+     風險：中
+    </li>
+    <li>
+     類型：資料庫注入攻擊 (SQL Injection)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Sun, 21 Nov 2021 23:56:27 GMT</pubDate></item><item><title> 某單位 無須登入狀態可取得大量會員資料及網站參數存在SQL injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00841</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-high-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00841
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位 無須登入狀態可取得大量會員資料及網站參數存在SQL injection
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      網站參數存在SQL injection
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    通報未回應
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-high">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       通報中
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未修補
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/21 23:31:57
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 wucy0612 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/21 23:32:50
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 wucy0612 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/21 23:34:09
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 wucy0612 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:55:50
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:23:26
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:23:26
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:23:26
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00841
+    </li>
+    <li>
+     通報者：wucy0612 (
+     <a href="/user/wucy0612">
+      wucy0612
+     </a>
+     )
+    </li>
+    <li>
+     風險：高
+    </li>
+    <li>
+     類型：任意檔案下載 (Arbitrary File Download)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Sun, 21 Nov 2021 23:31:57 GMT</pubDate></item><item><title> 某單位  網站參數存在SQL injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00840</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-high-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2021-00840
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      某單位  網站參數存在SQL injection
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      網站參數存在SQL injection
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    通報未回應
+   </div>
+   <div class="status-descr">
+    Last Update : 2021/12/02
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-high">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived arriving">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       通報中
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未修補
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="not-arrived-yet">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2021/11/21 23:00:09
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 wucy0612 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/22 02:26:53
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 wucy0612 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/11/27 22:55:38
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:23:01
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:23:01
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2021/12/02 11:23:01
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2021-00840
+    </li>
+    <li>
+     通報者：wucy0612 (
+     <a href="/user/wucy0612">
+      wucy0612
+     </a>
+     )
+    </li>
+    <li>
+     風險：高
+    </li>
+    <li>
+     類型：資料庫注入攻擊 (SQL Injection)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Sun, 21 Nov 2021 23:00:09 GMT</pubDate></item><item><title> 某單位   網站參數存在 XSS 與原型污染  及 SQL injection </title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00839</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -5635,3008 +9311,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Sun, 28 Nov 2021 01:55:47 GMT</pubDate></item><item><title> 某單位  Sqli</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00855</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-medium-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00855
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  Sqli
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      Sqli
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-medium">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/26 18:11:02
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:59:18
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00855
-    </li>
-    <li>
-     通報者：waterpeitw (
-     <a href="/user/waterpeitw">
-      水皮
-     </a>
-     )
-    </li>
-    <li>
-     風險：中
-    </li>
-    <li>
-     類型：資料庫注入攻擊 (SQL Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Fri, 26 Nov 2021 18:11:02 GMT</pubDate></item><item><title> 某單位  Git 洩漏</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00854</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-low-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00854
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  Git 洩漏
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      Git 洩漏
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-low">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/26 16:55:21
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 Spider 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/26 16:56:19
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 Spider 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:59:07
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00854
-    </li>
-    <li>
-     通報者：lucasyang (
-     <a href="/user/lucasyang">
-      Spider
-     </a>
-     )
-    </li>
-    <li>
-     風險：低
-    </li>
-    <li>
-     類型：邏輯漏洞 (Logic Flaws)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Fri, 26 Nov 2021 16:55:21 GMT</pubDate></item><item><title> 某單位  RCE</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00853</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-high-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00853
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  RCE
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      RCE
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-high">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/25 17:47:04
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:58:57
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00853
-    </li>
-    <li>
-     通報者：waterpeitw (
-     <a href="/user/waterpeitw">
-      水皮
-     </a>
-     )
-    </li>
-    <li>
-     風險：高
-    </li>
-    <li>
-     類型：指令注入攻擊 (Command Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Thu, 25 Nov 2021 17:47:04 GMT</pubDate></item><item><title> 某單位  SQLi</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00852</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-high-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00852
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  SQLi
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      SQLi
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-high">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/25 17:43:11
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:58:43
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00852
-    </li>
-    <li>
-     通報者：waterpeitw (
-     <a href="/user/waterpeitw">
-      水皮
-     </a>
-     )
-    </li>
-    <li>
-     風險：高
-    </li>
-    <li>
-     類型：資料庫注入攻擊 (SQL Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Thu, 25 Nov 2021 17:43:11 GMT</pubDate></item><item><title> 某單位  SQL Injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00851</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-medium-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00851
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  SQL Injection
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      SQL Injection
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-medium">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/24 17:31:07
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:58:24
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00851
-    </li>
-    <li>
-     通報者：waterpeitw (
-     <a href="/user/waterpeitw">
-      水皮
-     </a>
-     )
-    </li>
-    <li>
-     風險：中
-    </li>
-    <li>
-     類型：資料庫注入攻擊 (SQL Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Wed, 24 Nov 2021 17:31:07 GMT</pubDate></item><item><title> 某單位  弱密碼,任意檔案上傳,RCE</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00850</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-high-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00850
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  弱密碼,任意檔案上傳,RCE
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      弱密碼,任意檔案上傳,RCE
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-high">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/24 17:09:10
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:58:02
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00850
-    </li>
-    <li>
-     通報者：waterpeitw (
-     <a href="/user/waterpeitw">
-      水皮
-     </a>
-     )
-    </li>
-    <li>
-     風險：高
-    </li>
-    <li>
-     類型：指令注入攻擊 (Command Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Wed, 24 Nov 2021 17:09:10 GMT</pubDate></item><item><title> 某單位  弱密碼</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00849</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-medium-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00849
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  弱密碼
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      弱密碼
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-medium">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/24 16:37:06
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:57:48
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00849
-    </li>
-    <li>
-     通報者：waterpeitw (
-     <a href="/user/waterpeitw">
-      水皮
-     </a>
-     )
-    </li>
-    <li>
-     風險：中
-    </li>
-    <li>
-     類型：弱密碼 (Weak Passwords)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Wed, 24 Nov 2021 16:37:06 GMT</pubDate></item><item><title> 某單位  弱密碼+git洩漏</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00848</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-medium-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00848
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  弱密碼+git洩漏
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      弱密碼
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-medium">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/24 15:42:00
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/25 23:57:00
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:57:37
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00848
-    </li>
-    <li>
-     通報者：waterpeitw (
-     <a href="/user/waterpeitw">
-      水皮
-     </a>
-     )
-    </li>
-    <li>
-     風險：中
-    </li>
-    <li>
-     類型：弱密碼 (Weak Passwords)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Wed, 24 Nov 2021 15:42:00 GMT</pubDate></item><item><title> 某單位 R-XSS</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00847</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-low-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00847
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位 R-XSS
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      RXSS
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-low">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/24 11:01:00
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/24 11:01:25
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/24 11:02:15
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:57:24
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00847
-    </li>
-    <li>
-     通報者：waterpeitw (
-     <a href="/user/waterpeitw">
-      水皮
-     </a>
-     )
-    </li>
-    <li>
-     風險：低
-    </li>
-    <li>
-     類型：反射型跨站腳本攻擊 (Reflected Cross-Site Scripting)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Wed, 24 Nov 2021 11:01:00 GMT</pubDate></item><item><title> 某單位 演講邀約系統身份認證繞過</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00846</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-medium-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00846
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位 演講邀約系統身份認證繞過
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      演講邀約系統能利用更改網址的方式繞過身份驗證
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-medium">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/23 18:54:44
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 jerrygaga 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/23 19:52:26
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 jerrygaga 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:57:15
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00846
-    </li>
-    <li>
-     通報者：jerry30109 (
-     <a href="/user/jerry30109">
-      jerrygaga
-     </a>
-     )
-    </li>
-    <li>
-     風險：中
-    </li>
-    <li>
-     類型：存取控制缺陷 (Broken Access Control)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Tue, 23 Nov 2021 18:54:44 GMT</pubDate></item><item><title> 某單位  SQL Injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00845</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-high-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00845
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  SQL Injection
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      SQL Injection
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-high">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/23 18:14:11
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/23 21:01:58
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:57:00
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00845
-    </li>
-    <li>
-     通報者：waterpeitw (
-     <a href="/user/waterpeitw">
-      水皮
-     </a>
-     )
-    </li>
-    <li>
-     風險：高
-    </li>
-    <li>
-     類型：資料庫注入攻擊 (SQL Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Tue, 23 Nov 2021 18:14:11 GMT</pubDate></item><item><title> 某單位 SQL Injection 漏洞</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00844</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-high-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00844
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位 SQL Injection 漏洞
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      報名系統後端維護系統登入頁面能經由Sql injection的方式繞過身份認證
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-high">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/23 16:32:18
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 jerrygaga 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/23 17:00:07
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 jerrygaga 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/23 19:52:43
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 jerrygaga 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:56:27
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00844
-    </li>
-    <li>
-     通報者：jerry30109 (
-     <a href="/user/jerry30109">
-      jerrygaga
-     </a>
-     )
-    </li>
-    <li>
-     風險：高
-    </li>
-    <li>
-     類型：資料庫注入攻擊 (SQL Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Tue, 23 Nov 2021 16:32:18 GMT</pubDate></item><item><title> 某單位  RCE</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00843</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-high-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00843
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  RCE
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      RCE
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-high">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/22 17:40:45
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:56:16
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00843
-    </li>
-    <li>
-     通報者：waterpeitw (
-     <a href="/user/waterpeitw">
-      水皮
-     </a>
-     )
-    </li>
-    <li>
-     風險：高
-    </li>
-    <li>
-     類型：指令注入攻擊 (Command Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Mon, 22 Nov 2021 17:40:45 GMT</pubDate></item><item><title> 某單位  網站參數存在SQL injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00842</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-medium-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00842
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  網站參數存在SQL injection
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      網站參數存在SQL injection
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-medium">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/21 23:56:27
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 wucy0612 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:56:00
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00842
-    </li>
-    <li>
-     通報者：wucy0612 (
-     <a href="/user/wucy0612">
-      wucy0612
-     </a>
-     )
-    </li>
-    <li>
-     風險：中
-    </li>
-    <li>
-     類型：資料庫注入攻擊 (SQL Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Sun, 21 Nov 2021 23:56:27 GMT</pubDate></item><item><title> 某單位 無須登入狀態可取得大量會員資料及網站參數存在SQL injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00841</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-high-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00841
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位 無須登入狀態可取得大量會員資料及網站參數存在SQL injection
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      網站參數存在SQL injection
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-high">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/21 23:31:57
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 wucy0612 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/21 23:32:50
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 wucy0612 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/21 23:34:09
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 wucy0612 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:55:50
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00841
-    </li>
-    <li>
-     通報者：wucy0612 (
-     <a href="/user/wucy0612">
-      wucy0612
-     </a>
-     )
-    </li>
-    <li>
-     風險：高
-    </li>
-    <li>
-     類型：任意檔案下載 (Arbitrary File Download)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Sun, 21 Nov 2021 23:31:57 GMT</pubDate></item><item><title> 某單位  網站參數存在SQL injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00840</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-high-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00840
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  網站參數存在SQL injection
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      網站參數存在SQL injection
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    審核完成
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-high">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未通報
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/21 23:00:09
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 wucy0612 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/22 02:26:53
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 wucy0612 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/27 22:55:38
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00840
-    </li>
-    <li>
-     通報者：wucy0612 (
-     <a href="/user/wucy0612">
-      wucy0612
-     </a>
-     )
-    </li>
-    <li>
-     風險：高
-    </li>
-    <li>
-     類型：資料庫注入攻擊 (SQL Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Sun, 21 Nov 2021 23:00:09 GMT</pubDate></item><item><title>景鴻集團OA系統V5.6SP1 存在任意文件下载漏洞</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00742</link><description><div class="container">
+</description><pubDate>Sun, 28 Nov 2021 01:55:47 GMT</pubDate></item><item><title>景鴻集團OA系統V5.6SP1 存在任意文件下载漏洞</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00742</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -16019,228 +16694,4 @@
   </div>
  </section>
 </div>
-</description><pubDate>Wed, 17 Nov 2021 10:37:48 GMT</pubDate></item><item><title> 某單位  網址參數存在 XSS 與 原型污染</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2021-00820</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-low-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2021-00820
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      某單位  網址參數存在 XSS 與 原型污染
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      網址參數存在 XSS 與 原型污染
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    通報未回應
-   </div>
-   <div class="status-descr">
-    Last Update : 2021/11/23
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-low">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="just-arrived arriving">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       通報中
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未修補
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="not-arrived-yet">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2021/11/17 04:00:53
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 bttea 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/17 04:07:24
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 bttea 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/19 22:59:18
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/23 14:57:14
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/23 14:57:14
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2021/11/23 14:57:14
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2021-00820
-    </li>
-    <li>
-     通報者：blacktea_player (
-     <a href="/user/blacktea_player">
-      bttea
-     </a>
-     )
-    </li>
-    <li>
-     風險：低
-    </li>
-    <li>
-     類型：反射型跨站腳本攻擊 (Reflected Cross-Site Scripting)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Wed, 17 Nov 2021 04:00:53 GMT</pubDate></item></channel></rss>
+</description><pubDate>Wed, 17 Nov 2021 10:37:48 GMT</pubDate></item></channel></rss>
