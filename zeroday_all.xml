@@ -3395,7 +3395,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Fri, 25 Mar 2022 00:37:20 GMT</pubDate></item><item><title> 某單位 網站，存在XSS漏洞</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00228</link><description><div class="container">
+</description><pubDate>Fri, 25 Mar 2022 00:37:20 GMT</pubDate></item><item><title>友和貿易股份有限公司網站，存在XSS漏洞</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00228</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -3413,12 +3413,25 @@
       ZD-2022-00228
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/2521">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      友和貿易股份有限公司
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      某單位 網站，存在XSS漏洞
+      友和貿易股份有限公司網站，存在XSS漏洞
      </span>
     </li>
     <li class="intro">
@@ -3441,10 +3454,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/03/30
+    Last Update : 2022/04/07
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-low">
     <li class="">
@@ -3474,7 +3487,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -3483,7 +3496,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="non-stop">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -3492,7 +3505,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -3596,6 +3609,17 @@
       已修補 (由 HITCON ZeroDay 服務團隊 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/04/07 03:00:06
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -3624,6 +3648,92 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可經由該漏洞竊取使用者身份，或進行掛碼、轉址等攻擊行為。
+    <br/>
+    <br/>
+    漏洞說明： OWASP - Cross-site Scripting (XSS)
+    <br/>
+    https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
+    <br/>
+    <br/>
+    防護原則： OWASP - XSS (Cross Site Scripting) Prevention Cheat Sheet
+    <br/>
+    https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+    <br/>
+    <br/>
+    防禦繞過方式： OWASP - XSS Filter Evasion Cheat Sheet
+    <br/>
+    https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    http://www.uni-onward.com.tw/page1.asp?p="&gt;&lt;svg/onload=alert('XSS')&gt;
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <ol>
+     <li>
+      於問題參數p，加入XSS相關指令，即會反應在瀏覽器上
+     </li>
+     <li>
+      例如：page1.asp?p="&gt;&lt;svg/onload=alert('XSS')&gt;
+      <br/>
+      <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7391/attachments/ca147cde8664b0d7d897565e7cdcc4c0"/>
+     </li>
+    </ol>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   修補建議
+  </h3>
+  <div class="section-content zdui-md-content">
+   <p>
+    1. 針對所有GET/POST的所得到的變數(例如：p)，一定要在server side確認變數中沒有不合規的字元，例如：&lt;、"、'、=、...等
+    <br>
+     2. 不要將GET/POST的所得到的變數(例如：p)，直接用於網頁內容上
+     <br/>
+     3. 可google一下排除XSS的asp程式開發範例
+    </br>
+   </p>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7391/attachments/ca147cde8664b0d7d897565e7cdcc4c0" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -3636,6 +3746,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/2521">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
@@ -6773,7 +6902,7 @@
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="f7a7b7848480c78593" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="277767545450175543" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -6838,7 +6967,7 @@
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="abfbebd8d8dc9bd9cf">
+      <span class="__cf_email__" data-cfemail="84d4c4f7f7f3b4f6e0">
        [email protected]
       </span>
      </a>
@@ -13216,7 +13345,7 @@
     </p>
     <p>
      {"list":[{"userid":"05076416_291","user_name":"lin","mail":"
-     <a class="__cf_email__" data-cfemail="583431362b3031302c31363f6961616b183f35393134763b3735" href="/cdn-cgi/l/email-protection">
+     <a class="__cf_email__" data-cfemail="cca0a5a2bfa4a5a4b8a5a2abfdf5f5ff8caba1ada5a0e2afa3a1" href="/cdn-cgi/l/email-protection">
       [email protected]
      </a>
      ","cell_phone_no":"0928807547","group_id":"Shengsong","token":"GR8GaUszO018sh3bZRumC1CaPNX4Ce6cHe6Zgci6LpA"}]}
