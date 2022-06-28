@@ -8924,7 +8924,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Mon, 06 Jun 2022 20:37:01 GMT</pubDate></item><item><title> 某單位  Android APP API 端點存在 SQL Injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00383</link><description><div class="container">
+</description><pubDate>Mon, 06 Jun 2022 20:37:01 GMT</pubDate></item><item><title>Mr.Wish 鮮果茶玩家 Android APP API 端點存在 SQL Injection</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00383</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -8942,12 +8942,25 @@
       ZD-2022-00383
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/3152">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      希望創造事業股份有限公司
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      某單位  Android APP API 端點存在 SQL Injection
+      Mr.Wish 鮮果茶玩家 Android APP API 端點存在 SQL Injection
      </span>
     </li>
     <li class="intro">
@@ -8970,10 +8983,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    確認已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/06/25
+    Last Update : 2022/06/29
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-high">
     <li class="">
@@ -9012,7 +9025,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -9021,7 +9034,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="just-arrived">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -9158,6 +9171,17 @@
       確認已修補 (由 d0gkiller87 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/06/29 03:00:03
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -9186,6 +9210,166 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可利用該漏洞取得後端資料庫權限及完整資料（包含大量使用者個資或敏感性資料），同時也有機會對資料進行破壞或修改。
+    <br/>
+    <br/>
+    漏洞說明： OWASP - SQL Injection
+    <br/>
+    https://www.owasp.org/index.php/SQL_Injection
+    <br/>
+    <br/>
+    漏洞說明： OWASP - Top 10 - 2017 A1 - Injection
+    <br/>
+    https://www.owasp.org/index.php/Top_10-2017_A1-Injection
+    <br/>
+    <br/>
+    漏洞說明： CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
+    <br/>
+    https://cwe.mitre.org/data/definitions/89.html
+    <br/>
+    <br/>
+    防護方式： OWASP - SQL Injection Prevention Cheat Sheet
+    <br/>
+    https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://app.mr-wish.com/app/game.php
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <h2>
+     注入點
+    </h2>
+    <p>
+     <a href="https://app.mr-wish.com/app/game.php">
+      https://app.mr-wish.com/app/game.php
+     </a>
+     的 CardNO 參數會被 (猜測) 拼接至 SQL SELECT 查詢的 WHERE 語句中。
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7546/attachments/f7a875c83073499af812d2452c8b3189"/>
+    </p>
+    <h2>
+     發現方式
+    </h2>
+    <p>
+     於 Mr.Wish Android APP 程式碼中可找到數個 endpoint。
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7546/attachments/ba6dea7e8c3d721961fdcfaa3bd2067e"/>
+    </p>
+    <h2>
+     Exploit
+    </h2>
+    <p>
+     儘管弱點環境存在一些條件限制，攻擊者仍可利用 conditional error 手法取出資料 (詳請見以下連結)。
+     <br/>
+     如上圖所示注入
+     <code>
+      exp(710)
+     </code>
+     表達式後，將導致程式接下來呼叫
+     <code>
+      mysql_fetch_array()
+     </code>
+     取得查詢結果時發生錯誤。
+    </p>
+    <ul>
+     <li>
+      <a href="https://www.exploit-db.com/docs/english/37953-mysql-error-based-sql-injection-using-exp.pdf">
+       https://www.exploit-db.com/docs/english/37953-mysql-error-based-sql-injection-using-exp.pdf
+      </a>
+     </li>
+     <li>
+      <a href="https://portswigger.net/web-security/sql-injection/blind#:~:text=conditional%20responses%20by-,triggering%20SQL%20errors,-In%20the%20preceding">
+       https://portswigger.net/web-security/sql-injection/blind#:~:text=conditional%20responses%20by-,triggering%20SQL%20errors,-In%20the%20preceding
+      </a>
+     </li>
+    </ul>
+    <p>
+     測試腳本部分內容
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7546/attachments/7f564850af5c77d0906b79e6d4ed91d9"/>
+    </p>
+    <p>
+     測試結果
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7546/attachments/a82727f25871153d58af8a8505957d50"/>
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   修補建議
+  </h3>
+  <div class="section-content zdui-md-content">
+   <p>
+    - 改用安全的函式庫 (如 https://meekro.com/) 進行 MySQL 操作
+    <br>
+     - 或至少過濾 `' (單引號)`、`" (雙引號)` 等可重塑語句結構的特殊符號
+     <br>
+      - 關閉或限制不需使用的 API，像是已結束的活動如 game.php 等
+      <br>
+       - 檢查其他 API 是否可能存在 SQLi 或其他弱點
+       <br>
+        - 對使用者密碼進行安全的 hash 運算後再存放 (如 bcrypt)
+       </br>
+      </br>
+     </br>
+    </br>
+   </p>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7546/attachments/ba6dea7e8c3d721961fdcfaa3bd2067e" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7546/attachments/f7a875c83073499af812d2452c8b3189" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7546/attachments/a82727f25871153d58af8a8505957d50" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7546/attachments/7f564850af5c77d0906b79e6d4ed91d9" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -9198,6 +9382,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/3152">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
