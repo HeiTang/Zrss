@@ -5218,7 +5218,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Fri, 05 Aug 2022 19:40:40 GMT</pubDate></item><item><title>[Bounty]  某單位   IDOR</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00623</link><description><div class="container">
+</description><pubDate>Fri, 05 Aug 2022 19:40:40 GMT</pubDate></item><item><title>[Bounty] 台灣電力公司 電力交易平台  IDOR</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00623</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -5236,12 +5236,25 @@
       ZD-2022-00623
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      台灣電力公司
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      [Bounty]  某單位   IDOR
+      [Bounty] 台灣電力公司 電力交易平台  IDOR
      </span>
     </li>
     <li class="intro">
@@ -5264,10 +5277,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    確認已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/08/10
+    Last Update : 2022/08/14
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-medium">
     <li class="">
@@ -5306,7 +5319,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -5315,7 +5328,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="just-arrived">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -5375,6 +5388,17 @@
       確認已修補 (由 cheng 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/08/14 03:00:10
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -5403,6 +5427,145 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可經由該漏洞取得系統中的其他使用者的資料或是系統檔案。
+    <br/>
+    <br/>
+    OWASP Top 10 - 2013 A4 - Insecure Direct Object References
+    <br/>
+    https://www.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References
+    <br/>
+    <br/>
+    Insecure Direct Object Reference Prevention Cheat Sheet
+    <br/>
+    https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.md
+    <br/>
+    <br/>
+    OWASP Top 10 - 2017 A5 - Broken Access Control
+    <br/>
+    https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    未登入狀態，查詢及刪除內部資料
+    <br/>
+    <br/>
+    1. https://61.65.237.200/api/faq/user_asks
+    <br/>
+    2. https://61.65.237.200/api/faq/user_asks/delete
+    <br/>
+    3. https://61.65.237.200/api/faq/reply_template
+    <br/>
+    4. https://61.65.237.200/api/faq/reply_template/delete
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <ol>
+     <li>
+      透過問題網址1,2的api可在未登入狀態看到或任意刪除使用者提問的問題，該資訊在前台無法看到猜測應在後端管理系統才能看到
+     </li>
+    </ol>
+    <p>
+     使者問題資訊
+     <br/>
+     <a href="https://61.65.237.200/api/faq/user_asks">
+      https://61.65.237.200/api/faq/user_asks
+     </a>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7786/attachments/c9558f6124f897314a5f18c77f54a7b2"/>
+    </p>
+    <p>
+     刪除使用者問題資訊，測試時刪除 id:3265 測試資料
+     <br/>
+     <a href="https://61.65.237.200/api/faq/user_asks/delete">
+      https://61.65.237.200/api/faq/user_asks/delete
+     </a>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7786/attachments/a34021ab4077de8d03b26cac8b6d5777"/>
+    </p>
+    <p>
+     已無法找到 id:3265問題資訊
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7786/attachments/c9070d6185de1827a1b93d4434d1ec1d"/>
+    </p>
+    <p>
+     2.透過問題網址3,4的api可在未登入狀態看到或任意刪除已設定好的回覆模板，該資訊在前台無法看到猜測應在後端管理系統才能看到
+    </p>
+    <p>
+     查看回覆模板資訊
+     <br/>
+     <a href="https://61.65.237.200/api/faq/reply_template">
+      https://61.65.237.200/api/faq/reply_template
+     </a>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7786/attachments/2a2503cef43be4dbce8053e824e2fbdc"/>
+    </p>
+    <p>
+     可使用刪除回覆模板的API
+     <br/>
+     <a href="https://61.65.237.200/api/faq/reply_template/delete">
+      https://61.65.237.200/api/faq/reply_template/delete
+     </a>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7786/attachments/f2b7d9e2320ef874d9a90ea657f4fe33"/>
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7786/attachments/c9558f6124f897314a5f18c77f54a7b2" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7786/attachments/a34021ab4077de8d03b26cac8b6d5777" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7786/attachments/c9070d6185de1827a1b93d4434d1ec1d" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7786/attachments/2a2503cef43be4dbce8053e824e2fbdc" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7786/attachments/f2b7d9e2320ef874d9a90ea657f4fe33" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -5415,6 +5578,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
