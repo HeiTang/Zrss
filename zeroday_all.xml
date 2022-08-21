@@ -8956,7 +8956,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Fri, 05 Aug 2022 17:27:07 GMT</pubDate></item><item><title>[Bounty]  某單位  Cross-Site Scripting 漏洞</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00620</link><description><div class="container">
+</description><pubDate>Fri, 05 Aug 2022 17:27:07 GMT</pubDate></item><item><title>[Bounty] 台灣電力公司 Cross-Site Scripting 漏洞</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00620</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -8974,12 +8974,25 @@
       ZD-2022-00620
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      台灣電力公司
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      [Bounty]  某單位  Cross-Site Scripting 漏洞
+      [Bounty] 台灣電力公司 Cross-Site Scripting 漏洞
      </span>
     </li>
     <li class="intro">
@@ -9002,10 +9015,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    確認已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/08/18
+    Last Update : 2022/08/22
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-low">
     <li class="">
@@ -9044,7 +9057,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -9053,7 +9066,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="just-arrived">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -9113,6 +9126,17 @@
       確認已修補 (由 K4iBr0 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/08/22 03:00:18
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -9141,6 +9165,93 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可經由該漏洞竊取使用者身份，或進行掛碼、轉址等攻擊行為。
+    <br/>
+    <br/>
+    漏洞說明： OWASP - Cross-site Scripting (XSS)
+    <br/>
+    https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
+    <br/>
+    <br/>
+    防護原則： OWASP - XSS (Cross Site Scripting) Prevention Cheat Sheet
+    <br/>
+    https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+    <br/>
+    <br/>
+    防禦繞過方式： OWASP - XSS Filter Evasion Cheat Sheet
+    <br/>
+    https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://ebppsmtp.taipower.com.tw/HL/Error2.asp?ERR=%3Csvg/onload=alert(document.domain)%3E
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     該頁面 ERR 參數未經過濾就輸出至網頁，導致存在 Cross-Site Scripting (XSS) 漏洞
+    </p>
+    <p>
+     攻擊者有機會透過此漏洞竊取瀏覽使用者的 cookie、後台 URL 等資訊
+    </p>
+    <p>
+     PoC:
+     <br/>
+     <a href="https://ebppsmtp.taipower.com.tw/HL/Error2.asp?ERR=%3Csvg/onload=alert(document.domain)%3E">
+      https://ebppsmtp.taipower.com.tw/HL/Error2.asp?ERR=%3Csvg/onload=alert(document.domain)%3E
+     </a>
+    </p>
+    <p>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7783/attachments/9ce2376962ff66b70ecb65a760f472a7"/>
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   修補建議
+  </h3>
+  <div class="section-content zdui-md-content">
+   <p>
+    過濾使用者輸入
+   </p>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7783/attachments/9ce2376962ff66b70ecb65a760f472a7" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -9153,6 +9264,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
@@ -9573,7 +9703,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Fri, 05 Aug 2022 09:57:01 GMT</pubDate></item><item><title>[Bounty]  某單位  程式碼洩露</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00617</link><description><div class="container">
+</description><pubDate>Fri, 05 Aug 2022 09:57:01 GMT</pubDate></item><item><title>[Bounty] 台灣電力公司 程式碼洩露</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00617</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -9591,12 +9721,25 @@
       ZD-2022-00617
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      台灣電力公司
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      [Bounty]  某單位  程式碼洩露
+      [Bounty] 台灣電力公司 程式碼洩露
      </span>
     </li>
     <li class="intro">
@@ -9619,10 +9762,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    確認已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/08/18
+    Last Update : 2022/08/22
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-medium">
     <li class="">
@@ -9661,7 +9804,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -9670,7 +9813,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="just-arrived">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -9741,6 +9884,17 @@
       確認已修補 (由 K4iBr0 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/08/22 03:00:17
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -9769,6 +9923,91 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可利用洩漏資訊進行下一步攻擊行為。
+    <br/>
+    <br/>
+    OWASP 漏洞說明 (Top 10 2017 - A3 Sensitive Data Exposure)
+    <br/>
+    https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure
+    <br/>
+    <br/>
+    CWE-200 漏洞說明
+    <br/>
+    https://cwe.mitre.org/data/definitions/200.html
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://greennet.taipower.com.tw/bin.zip
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     測試發現以下網址可下載網站相關 dll:
+     <br/>
+     <a href="https://greennet.taipower.com.tw/bin.zip">
+      https://greennet.taipower.com.tw/bin.zip
+     </a>
+    </p>
+    <p>
+     透過 dnSpy 可解出 dll 中的程式碼，攻擊者有機會透過程式碼對網站進行後續攻擊，如圖所示：
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7780/attachments/f08847314e13ecc0a442cc386bbcee15"/>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7780/attachments/c2f93506820537376d8575cf19754a37"/>
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   修補建議
+  </h3>
+  <div class="section-content zdui-md-content">
+   <p>
+    避免將敏感檔案，如程式碼、備份檔等內容放在任何人都可以下載的網頁目錄下
+   </p>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7780/attachments/f08847314e13ecc0a442cc386bbcee15" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7780/attachments/c2f93506820537376d8575cf19754a37" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -9781,6 +10020,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
