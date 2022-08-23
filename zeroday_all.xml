@@ -9283,7 +9283,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Fri, 05 Aug 2022 19:13:49 GMT</pubDate></item><item><title>[Bounty]  某單位  Broken Access Control</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00622</link><description><div class="container">
+</description><pubDate>Fri, 05 Aug 2022 19:13:49 GMT</pubDate></item><item><title>[Bounty] 台灣電力公司 Broken Access Control</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00622</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -9301,12 +9301,25 @@
       ZD-2022-00622
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      台灣電力公司
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      [Bounty]  某單位  Broken Access Control
+      [Bounty] 台灣電力公司 Broken Access Control
      </span>
     </li>
     <li class="intro">
@@ -9329,10 +9342,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    確認已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/08/19
+    Last Update : 2022/08/24
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-medium">
     <li class="">
@@ -9371,7 +9384,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -9380,7 +9393,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="just-arrived">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -9440,6 +9453,17 @@
       確認已修補 (由 K4iBr0 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/08/24 03:00:04
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -9468,6 +9492,105 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可經由該漏洞取得、修改、刪除系統中的其他使用者的資料，或連線至高權限使用者的頁面。
+    <br/>
+    <br/>
+    OWASP Top 10 - 2017 A5 - Broken Access Control
+    <br/>
+    https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control
+    <br/>
+    <br/>
+    CWE-284: Improper Access Control
+    <br/>
+    https://cwe.mitre.org/data/definitions/284.html
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://greennet.taipower.com.tw/
+    <a class="__cf_email__" data-cfemail="87d4f2e5eaeef4f4eee8e9d8d4e2e9e3c2eae6eeeba9e6f4f7ffb8e4b6baf0b6bfb6b3beb1c7e0eae6eeeba9e4e8ea" href="/cdn-cgi/l/email-protection">
+     [email protected]
+    </a>
+    &amp;c2=Bug%20Bounty&amp;c3=VIP%E4%BD%BF%E7%94%A8%E8%80%85%0A%E8%AB%8B%E8%87%B3%20http://kaibro.tw/hack%20%E8%BC%B8%E5%85%A5%E5%B8%B3%E8%99%9F%E5%AF%86%E7%A2%BC%E7%99%BB%E5%85%A5%E4%B8%A6%E9%A0%98%E5%8F%96%E4%BD%A0%E7%9A%84%E7%8D%8E%E5%8B%B5%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A,bb,cc
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     該寄信功能未限制存取權限，任何訪客皆可透過該功能對任意 email 位址發送郵件，亦可大量重送該功能造成服務負荷量過大異常 (DoS)
+    </p>
+    <p>
+     並且郵件的內容部分可控，故可以透過 Content Spoofing 進行攻擊
+    </p>
+    <p>
+     舉例：
+     <br/>
+     <a href="https://greennet.taipower.com.tw/Submission_SendEmail.aspx?c1=kaibrobugbounty@gmail.com&amp;c2=Bug%20Bounty&amp;c3=VIP%E4%BD%BF%E7%94%A8%E8%80%85%0A%E8%AB%8B%E8%87%B3%20http://kaibro.tw/hack%20%E8%BC%B8%E5%85%A5%E5%B8%B3%E8%99%9F%E5%AF%86%E7%A2%BC%E7%99%BB%E5%85%A5%E4%B8%A6%E9%A0%98%E5%8F%96%E4%BD%A0%E7%9A%84%E7%8D%8E%E5%8B%B5%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A,bb,cc">
+      https://greennet.taipower.com.tw/
+      <span class="__cf_email__" data-cfemail="217254434c485252484e4f7e72444f45644c40484d0f405251591e42101c4a404843534e435446434e544f555861464c40484d0f424e4c">
+       [email protected]
+      </span>
+      &amp;c2=Bug%20Bounty&amp;c3=VIP%E4%BD%BF%E7%94%A8%E8%80%85%0A%E8%AB%8B%E8%87%B3%20http://kaibro.tw/hack%20%E8%BC%B8%E5%85%A5%E5%B8%B3%E8%99%9F%E5%AF%86%E7%A2%BC%E7%99%BB%E5%85%A5%E4%B8%A6%E9%A0%98%E5%8F%96%E4%BD%A0%E7%9A%84%E7%8D%8E%E5%8B%B5%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A,bb,cc
+     </a>
+    </p>
+    <p>
+     存取該連結，可以對
+     <a class="__cf_email__" data-cfemail="b6ddd7dfd4c4d9d4c3d1d4d9c3d8c2cff6d1dbd7dfda98d5d9db" href="/cdn-cgi/l/email-protection">
+      [email protected]
+     </a>
+     發送信件
+     <br/>
+     收到的信件如下：
+    </p>
+    <p>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7785/attachments/dad235b4404e62d824dde7031f163f06"/>
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   修補建議
+  </h3>
+  <div class="section-content zdui-md-content">
+   <p>
+    限制存取權限，避免讓任意使用者使用該功能
+   </p>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7785/attachments/dad235b4404e62d824dde7031f163f06" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -9480,6 +9603,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
